@@ -1,0 +1,302 @@
+﻿// Language file of the vogels approximation method plugin
+
+$LANGUAGES
+#en = English
+#de = Deutsch
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// general properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGO_NAME
+#en = Vogel's Approximation Method
+#de = Vogelsche Approximationsmethode
+
+$ALGO_DESC
+#en = Determines a perfect matching <i>M</i> (of small weight).
+#de = Findet ein perfektes Matching <i>M</i> (mit geringem Gewicht).
+
+$ALGO_TYPE
+#en = Heuristic
+#de = Heuristik
+
+$ALGO_ASSUMPTIONS
+#en = A weighted complete graph K<sub>n</sub> with <i>n mod 2 = 0</i> (even number of vertices) or a weighted complete bipartite graph K<sub>n/2,n/2</sub>, n = |V|.
+#de = Ein gewichteter vollständiger Graph K<sub>n</sub> mit <i>n mod 2 = 0</i> (gerade Knotenanzahl) oder ein gewichteter vollständig bipartiter Graph K<sub>n/2,n/2</sub>, n = |V|.
+
+$ALGO_PROBLEMAFFILIATION
+#en = Matching problem
+#de = Matchingprobleme
+
+$ALGO_SUBJECT
+#en = Logistics
+#de = Logistik
+
+$ALGO_INSTRUCTIONS
+#en = <b>Creating problem entities</b>:<br>Create your own graph and make sure that the graph complies with the assumptions of the algorithm. You can use<br>the toolbar extensions to check whether the created graph is complete or complete bipartite, to create a complete graph or a complete bipartite graph<br>by indicating the number of vertices, to create a graph by use of an adjacency matrix or you can arrange the vertices of your created graph<br>in a predefined layout.<br><br><b>Exercise Mode</b>:<br>Activate the exercise mode to practice the algorithm in an interactive way. After you have started the algorithm<br>exercises are presented that you have to solve.<br>If an exercise can be solved directly in a view of the algorithm the corresponding view is highlighted with a border, there you can<br>enter your solution and afterwards you have to press the button to solve the exercise. Otherwise (if an exercise is not related to a specific<br>view) you can directly press the button to solve the exercise which opens a dialog where you can enter your solution of the exercise.
+#de = <b>Probleminstanzen erstellen</b>:<br>Erstellen Sie einen Graphen und achten Sie darauf, dass dieser die Voraussetzungen des Algorithmus erfüllt.<br>Über die Toolbar-Erweiterungen können Sie überprüfen, ob der erstellte Graph vollständig oder vollständig bipartit ist, einen vollständigen<br>Graphen oder einen vollständig bipartiten Graphen erstellen, indem Sie die Anzahl Knoten angeben, einen Graphen mittels einer Adjazenzmatrix<br>erstellen oder die Knoten eines erstellten Graphen in einem vordefinierten Layout ausrichten.<br><br><b>Übungsmodus</b>:<br>Aktivieren Sie den Übungsmodus, um den Algorithmus interaktiv zu erlernen. Nachdem Sie den Algorithmus gestartet haben, werden Ihnen<br>Übungsaufgaben gestellt, die Sie lösen müssen.<br>Wenn eine Aufgabe direkt in einer Ansicht des Algorithmus gelöst werden kann, wird die dazugehörige Ansicht mit einer Umrandung hervorgehoben,<br>in der Sie dann die Lösung eingeben können. Danach betätigen Sie den Button zum Lösen der Aufgabe. Ist ein Aufgabe nicht auf eine Ansicht<br>bezogen, können Sie direkt den Button zum Lösen der Aufgabe betätigen. Danach öffnet sich ein Dialog, in dem Sie die Lösung der Aufgabe<br>eingeben können.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the algorithm text
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGOTEXT_PARAGRAPH_INITIALIZATION
+#en = 1. Initialization:
+#de = 1. Initialisierung:
+
+$ALGOTEXT_PARAGRAPH_STOPCRITERION
+#en = 2. Stop criterion:
+#de = 2. Stoppkriterium:
+
+$ALGOTEXT_PARAGRAPH_REGRET
+#en = 3. Regret:
+#de = 3. Regret:
+
+$ALGOTEXT_PARAGRAPH_MATCHINGEXPANSION
+#en = 4. Matching update:
+#de = 4. Matchingerweiterung:
+
+$ALGOTEXT_PARAGRAPH_UPDATEL
+#en = 5. Update L:
+#de = 5. Aktualisierung von L:
+
+$ALGOTEXT_STEP1_INIT
+#en = Let _latex{$M := \emptyset$}.%nLet _latex{$L := V$} be the set of all vertices of the graph.%n%n
+#de = Sei _latex{$M := \emptyset$}.%nSei _latex{$L := V$} die Menge aller Knoten des Graphen. %n%n
+
+$ALGOTEXT_STEP2_STOP
+#en = If _latex{$|L| = 2$} 
+#de = Wenn _latex{$|L| = 2$}
+
+$ALGOTEXT_STEP3_ADDLASTEDGE
+#en = , add the edge between the remaining vertices to the set _latex{$M$} and stop.%n
+#de = , dann füge die Kante zwischen den verbleibenden Knoten der Menge _latex{$M$} hinzu und Stopp.%n
+
+$ALGOTEXT_STEP4_STOP
+#en = Otherwise go to step 3.%n%n
+#de = Ansonsten gehe zu Schritt 3.%n%n
+
+$ALGOTEXT_STEP5_REGRET
+#en = For each _latex{$v \in L$} determine the regret as follows: Let _latex{$v_1(v) \in argmin\{c(v,v') | v' \in L\}$} and _latex{$v_2(v) \in argmin\{c(v,v') | v' \in L \setminus \{v_1(v)\}\}$}. _latex{$regret(v) := c(v,v_2(v)) - c(v,v_1(v))$}.%n%n
+#de = Bestimme für jedes _latex{$v \in L$} den Regret wie folgt: Sei _latex{$v_1(v) \in argmin\{c(v,v') | v' \in L\}$} und _latex{$v_2(v) \in argmin\{c(v,v') | v' \in L \setminus \{v_1(v)\}\}$}. _latex{$regret(v) := c(v,v_2(v)) - c(v,v_1(v))$}.%n%n
+
+$ALGOTEXT_STEP6_MATCHINGEXPANSION
+#en = Let _latex{$v \in L$} be an arbitrary vertex with the largest regret.%n
+#de = Sei _latex{$v \in L$} ein beliebiger Knoten mit dem größten Regret.%n
+
+$ALGOTEXT_STEP7_MATCHINGEXPANSION
+#en = Add _latex{$(v,v_1(v))$} to the matching _latex{$M$}.%n%n
+#de = Füge _latex{$(v,v_1(v))$} dem Matching _latex{$M$} hinzu.%n%n
+
+$ALGOTEXT_STEP8_UPDATEL
+#en = Set _latex{$L := L \setminus \{v, v_1(v)\}$} and go to step 2.
+#de = Setze _latex{$L := L \setminus \{v, v_1(v)\}$} und gehe zu Schritt 2.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the exercises of the algorithm steps
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$EXERCISE_STEP1_8
+#en = Specify the set <i>L</i>?
+#de = Wie lautet die Menge <i>L</i>?
+
+$EXERCISE_STEP2
+#en = Is |L| = 2?
+#de = Ist |L| = 2?
+
+$EXERCISE_STEP3_7
+#en = Specify <i>M</i> after this step (<i>select all matched edges in the graph</i>)?
+#de = Wie lautet <i>M</i> nach diesem Schritt (<i>wählen Sie alle Matchingkanten im Graphen aus</i>)?
+
+$EXERCISE_STEP5
+#en = Determine the regrets.
+#d values = Bestimmen Sie die Regrets.
+
+$EXERCISE_STEP6
+#en = Select a vertex <i>v</i> with a largest regret in the graph.
+#de = Wählen Sie einen Knoten <i>v</i> mit einem größten Regret im Graphen aus.
+
+$EXERCISE_HINT_SETINPUT
+#en = Use a comma as delimiter symbol!
+#de = Nutzen Sie ein Komma als Trennzeichen!
+
+$EXERCISE_STEP2_YES
+#en = Yes
+#de = Ja
+
+$EXERCISE_STEP2_NO
+#en = No
+#de = Nein
+
+$EXERCISE_STEP3_7_INPUTHINT
+#en = <b>Select matched edges</b>:<br>Select the matched edges in the graph by using the mouse and pressing the <b>Ctrl</b>-key on your keyboard.<br>Afterwards click on the "Solve Exercise"-button of the task.
+#de = <b>Matchingkanten auswählen</b>:<br>Wählen Sie die Matchingkanten im Graphen aus, indem Sie die Maus benutzen und die <b>Strg</b>-Taste auf Ihrer Tastatur gedrückt halten.<br>Klicken Sie anschließend auf den "Aufgabe lösen"-Button der Aufgabe.
+
+$EXERCISE_STEP5_INPUTHINT
+#en = <b>Input of regrets</b>:<br>Enter the regrets in the last column of the regret table. If their is no regret for a vertex to be calculated<br>(because the vertex is not in <i>L</i>) then leave the field blank.<br>After entering the regrets click on the "Solve Exercise"-button of the task.
+#de = <b>Eingabe der Regrets</b>:<br>Geben Sie die Regrets in der letzten Spalte der Regret-Tabelle ein. Wenn es für einen Knoten kein Regret<br>mehr zu berechnen gibt (da der Knoten nicht in <i>L</i> ist), lassen Sie das Feld leer.<br>Klicken Sie auf den "Aufgabe lösen"-Button der Aufgabe, nachdem Sie die Regrets eingegeben haben.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the views of the plugin
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$VIEW_GRAPH_TITLE
+#en = Graph
+#de = Graph
+
+$VIEW_ALGOTEXT_TITLE
+#en = Algorithm
+#de = Algorithmus
+
+$VIEW_SET_TITLE
+#en = Set L
+#de = Menge L
+
+$VIEW_MATCHING_TITLE
+#en = Matching M
+#de = Matching M
+
+$VIEW_REGRET_TITLE
+#en = Regret
+#de = Regret
+
+$VIEW_ADJACENCYMATRIX_TITLE
+#en = Adjacency Matrix
+#de = Adjazenzmatrix
+
+$VIEW_LEGEND_TITLE
+#en = Legend
+#de = Legende
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the legend descriptions
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$LEGEND_GRAPH_MATCHEDEDGES
+#en = Edges of matching M
+#de = Matchingkanten des Matchings M
+
+$LEGEND_GRAPH_SETL
+#en = Vertices of set L
+#de = Knoten der Menge L
+
+$LEGEND_GRAPH_CURRVERTEX
+#en = Current vertex v
+#de = Aktueller Knoten v
+
+$LEGEND_GRAPH_CURRVERTEX1
+#en = Current vertex v<sub>1</sub>(v)
+#de = Aktueller Knoten v<sub>1</sub>(v)
+
+$LEGEND_GRAPH_CURREDGE
+#en = Current edge (v, v<sub>1</sub>(v))
+#de = Aktuelle Kante (v, v<sub>1</sub>(v))
+
+$LEGEND_SET_MODIFICATION
+#en = Set L is being modified
+#de = Die Menge L wird verändert
+
+$LEGEND_MATCHING_MODIFICATION
+#en = Matching M is being modified
+#de = Das Matching M wird verändert
+
+$LEGEND_ADJACENCYMATRIX_MINWEIGHTS
+#en = The first- and the second-smallest weight of a row, resulting in the regret of the related vertex
+#de = Das erst- und das zweitgeringste Gewicht in einer Zeile, die das Regret des zugehörigen Knoten ergeben
+
+$LEGEND_ADJACENCYMATRIX_CURREDGE
+#en = Current edge (v, v<sub>1</sub>(v))
+#de = Aktuelle Kante (v, v<sub>1</sub>(v))
+
+$LEGEND_ADJACENCYMATRIX_STRIKEOUT
+#en = Matched vertices (an edge incident to the vertex was added to the matching M)
+#de = Gematchte Knoten (eine inzidente Kante wurde dem Matching M hinzugefügt)
+
+$LEGEND_REGRET_DESC
+#en = difference between the best and the second-best edge weight
+#de = Differenz zwischen der bzgl. des Kantengewichts besten und zweitbesten Kante
+
+$LEGEND_REGRET_LARGEST
+#en = A largest regret
+#de = Ein größtes Regret
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// creator properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// customization properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTFOREGROUND
+#en = Foreground color of the current step in the algorithm
+#de = Vordergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTBACKGROUND
+#en = Background color of the current step in the algorithm
+#de = Hintergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_MATCHEDEDGES
+#en = Color of the matching edges
+#de = Farbe der Matchingkanten
+
+$CUSTOMIZE_COLOR_CURRVERTICES
+#en = Background color of the current vertices v and v<sub>1</sub>(v)
+#de = Hintergrundfarbe der aktuellen Knoten v and v<sub>1</sub>(v)
+
+$CUSTOMIZE_COLOR_CURREDGE
+#en = Color of the edge (v, v<sub>1</sub>(v))
+#de = Farbe der Kante (v, v<sub>1</sub>(v))
+
+$CUSTOMIZE_COLOR_SETL
+#en = Background color of the vertices of set L
+#de = Hintergrundfarbe der Knoten aus Menge L
+
+$CUSTOMIZE_COLOR_MINWEIGHTS
+#en = Background color of the elements with the first and the second smallest weight of the edges (v, v<sub>1</sub>(v)) and (v, v<sub>2</sub>(v)) required to calculate the regret
+#de = Hintergrundfarbe der Elemente mit dem erst- und zweitkleinsten Gewicht der Kanten (v, v<sub>1</sub>(v)) und (v, v<sub>2</sub>(v)), die für die Berechnung des Regrets benötigt werden
+
+$CUSTOMIZE_COLOR_LARGESTREGRET
+#en = Background color of the item with a largest regret
+#de = Hintergrundfarbe des Items mit einem größten Regret
+
+$CUSTOMIZE_COLOR_MODIFICATIONS
+#en = Color of modifications of objects
+#de = Farbe von Veränderungen an Objekten
+
+$CUSTOMIE_LINEWIDTH_MATCHEDEDGES
+#en = Line width of the matching edges
+#de = Linienstärke der Matchingkanten
+
+$CUSTOMIE_LINEWIDTH_CURREDGE
+#en = Line width of the edge (v, v<sub>1</sub>(v))
+#de = Linienstärke der Kante (v, v<sub>1</sub>(v))
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// messages
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$MSG_ERROR_SAVEFILE
+#en = File could not be saved!
+#de = Datei konnte nicht gespeichert werden!
+
+$MSG_ERROR_SAVEFILE_TITLE
+#en = Save File
+#de = Datei speichern
+
+$MSG_ERROR_OPENFILE
+#en = File could not be opened!
+#de = Datei konnte nicht geöffnet werden!
+
+$MSG_ERROR_OPENFILE_TITLE
+#en = Open File
+#de = Datei öffnen
+
+$MSG_INFO_GRAPHNOTPERMISSIBLE
+#en = The created graph is not permissible!%nThe graph has to fulfill the assumptions (see information bar).
+#de = Der erstellte Graph ist nicht zulässig!%nDer Graph muss die Voraussetzungen erfüllen (siehe Informationsleiste).
+
+$MSG_INFO_GRAPHNOTPERMISSIBLE_TITLE
+#en = Impermissible graph
+#de = Unzulässiger Graph

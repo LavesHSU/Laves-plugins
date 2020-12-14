@@ -1,0 +1,237 @@
+﻿// Language file of the ford-fulkerson algorithm plugin
+
+$LANGUAGES
+#en = English
+#de = Deutsch
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// general properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGO_NAME
+#en = Ford-Fulkerson algorithm
+#de = Ford-und-Fulkerson Algorithmus
+
+$ALGO_DESC
+#en = Finds a flow of maximum strength in a network.
+#de = Findet einen Fluss mit maximaler Stärke in einem Netzwerk.
+
+$ALGO_TYPE
+#en = Exact algorithm
+#de = Exaktes Verfahren
+
+$ALGO_ASSUMPTIONS
+#en = A network (G, u, s, t) with flow f.
+#de = Ein Netzwerk (G, u, s, t) mit Fluss f.
+
+$ALGO_PROBLEMAFFILIATION
+#en = Flow problem
+#de = Flussprobleme
+
+$ALGO_SUBJECT
+#en = Logistics
+#de = Logistik
+
+$ALGO_INSTRUCTIONS
+#en = <b>Creating problem entities</b>:<br>Create your own network and make sure that the network complies with the assumptions of the algorithm.<br><br><b>Exercise Mode</b>:<br>Activate the exercise mode to practice the algorithm in an interactive way. After you have started the algorithm<br>exercises are presented that you have to solve.<br>If an exercise can be solved directly in a view of the algorithm the corresponding view is highlighted with a border, there you can<br>enter your solution and afterwards you have to press the button to solve the exercise. Otherwise (if an exercise is not related to a specific<br>view) you can directly press the button to solve the exercise which opens a dialog where you can enter your solution of the exercise.
+#de = <b>Probleminstanzen erstellen</b>:<br>Erstellen Sie ein Netzwerk und achten Sie darauf, dass dieses die Voraussetzungen des Algorithmus erfüllt.<br><br><b>Übungsmodus</b>:<br>Aktivieren Sie den Übungsmodus, um den Algorithmus interaktiv zu erlernen. Nachdem Sie den Algorithmus gestartet haben, werden Ihnen<br>Übungsaufgaben gestellt, die Sie lösen müssen.<br>Wenn eine Aufgabe direkt in einer Ansicht des Algorithmus gelöst werden kann, wird die dazugehörige Ansicht mit einer Umrandung hervorgehoben,<br>in der Sie dann die Lösung eingeben können. Danach betätigen Sie den Button zum Lösen der Aufgabe. Ist ein Aufgabe nicht auf eine Ansicht<br>bezogen, können Sie direkt den Button zum Lösen der Aufgabe betätigen. Danach öffnet sich ein Dialog, in dem Sie die Lösung der Aufgabe<br>eingeben können.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the algorithm text
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGOTEXT_PARAGRAPH_RESIDUALNETWORK
+#en = 1. Residual Network:
+#de = 1. Residualnetzwerk:
+
+$ALGOTEXT_PARAGRAPH_AUGMENTINGPATH
+#en = 2. Augmenting Path:
+#de = 2. Augmenting Path:
+
+$ALGOTEXT_PARAGRAPH_STOP
+#en = 3. Stop:
+#de = 3. Stopp:
+
+$ALGOTEXT_PARAGRAPH_EXPANSION
+#en = 4. Expansion:
+#de = 4. Erweiterung:
+
+$ALGOTEXT_STEP1
+#en = Determine the residual network using _latex{$f$}.%n%n
+#de = Bestimme das Residualnetzwerk mit Hilfe von _latex{$f$}.%n%n
+
+$ALGOTEXT_STEP2
+#en = Determine a path _latex{$w$} from _latex{$s$} to _latex{$t$} in the residual network, if such a path exists.%n%n
+#de = Bestimme einen Weg _latex{$w$} von _latex{$s$} nach _latex{$t$} im Residualnetzwerk, sofern ein solcher Weg existiert.%n%n
+
+$ALGOTEXT_STEP3_STOP
+#en = If their is no such a path _latex{$w$} 
+#de = Gibt es keinen solchen Weg _latex{$w$}, 
+
+$ALGOTEXT_STEP4_STOP
+#en = then stop. Flow _latex{$f$} has maximum strength.%n%n
+#de = dann stopp. Fluss _latex{$f$} hat maximale Stärke.%n%n
+
+$ALGOTEXT_STEP5
+#en = For each edge _latex{$e$} in the path _latex{$w$} set: _latex{$f(e) = f(e) \; + \; \underset{e \in w}{min} u'(e)$} and go to step 1.
+#de = Setze für jede Kante _latex{$e$} im Weg _latex{$w$}: _latex{$f(e) = f(e) \; + \; \underset{e \in w}{min} u'(e)$} und gehe zu Schritt 1.
+
+$ALGOTEXT_STEP1_ANNOTATION
+#en = <b>Residual network</b><br>A residual network (G', u', s, t) to a flow f indicates the residual capacity of a network (G, u, s, t).<br>The weights u' for each edge (v, v') are defined as follows:<br>u'(v, v') := u(v, v') - f(v, v') as well as u'(v', v) := f(v, v')<br>The residual graph G' has the same vertex set as G and in addition to the forward edges e = (v, u) &isin; E with u'(e) > 0 the graph G' contains the backward edges e' = (u, v) too, if u'(e') > 0.<br><br><b>Example</b>:<br><table border="0"><tr><td valign="top">Network (G, u, s, t)</td><td valign="top">Residual network (G', u', s, t)</td><td valign="top"></td></tr><tr><td valign="top"><img src="network"></td><td valign="top"><img src="residual-network"></td><td valign="top">Look at the red marked edges it is:<br>u'(s, 1) = u(s, 1) - f(s, 1) = 5 - 2 = 3 and u'(1, s) = f(s, 1) = 2<br>E.g. the edges (2, s) or (1, 2) are not available in the residual network,<br>because u'(2, s) = f(s, 2) = 0 and u'(1, 2) = u(1, 2) - f(1, 2) = 1 - 1 = 0.</td></tr></table>
+#de = <b>Residualnetzwerk</b><br>Ein Residualnetzwerk (G', u', s, t) zu einem Fluss f zeigt die restlichen Kapazitäten eines Netzwerkes (G, u, s, t) an.<br>Die Kantengewichte u' sind für jede Kante (v, v') wie folgt definiert:<br>u'(v, v') := u(v, v') - f(v, v') sowie u'(v', v) := f(v, v')<br>Der Residualgraph G' hat dabei dieselbe Knotenmenge wie G und enthält neben den Kanten e = (v, u) &isin; E mit u'(e) > 0 auch die Rückkanten e' = (u, v), wenn u'(e') > 0.<br><br><b>Beispiel</b>:<br><table border="0"><tr><td valign="top">Netzwerk (G, u, s, t)</td><td valign="top">Residualnetzwerk (G', u', s, t)</td><td valign="top"></td></tr><tr><td valign="top"><img src="network"></td><td valign="top"><img src="residual-network"></td><td valign="top">Für die rot markierten Kanten gilt:<br>u'(s, 1) = u(s, 1) - f(s, 1) = 5 - 2 = 3 und u'(1, s) = f(s, 1) = 2.<br>Die Kanten (2, s) oder (1, 2) sind im Residualnetzwerk zum Beispiel nicht vorhanden,<br>da u'(2, s) = f(s, 2) = 0 und u'(1, 2) = u(1, 2) - f(1, 2) = 1 - 1 = 0.</td></tr></table>
+
+$ALGOTEXT_STEP5_ANNOTATION
+#en = <b>Example</b><br><img src="path">&nbsp;&nbsp;&nbsp;&nbsp;<img src="network-flow-changed"><br>Figure 1 shows a found path <i>w</i> (marked red) in the residual network.<br>The minimum weight is 1 = min{u'(s, 1), u'(1, 3), u'(3, t)} = min{2, 1, 3}.<br>Figure 2 shows the changed flow f in the network for each edge of the path: f(s, 1) = 3 + 1 = 4, f(1, 3) = 3 + 1 = 4 and f(3, t) = 4 + 1 = 5.
+#de = <b>Beispiel</b><br><img src="path">&nbsp;&nbsp;&nbsp;&nbsp;<img src="network-flow-changed"><br>Bild 1 zeigt in rot markiert einen gefundenen Weg <i>w</i> im Residualnetzwerk.<br>Das minimale Gewicht ist 1 = min{u'(s, 1), u'(1, 3), u'(3, t)} = min{2, 1, 3}.<br>Bild 2 zeigt den veränderten Fluss f im Netzwerk für die Kanten des Weges: f(s, 1) = 3 + 1 = 4, f(1, 3) = 3 + 1 = 4 und f(3, t) = 4 + 1 = 5.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the exercises of the algorithm steps
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$EXERCISE_STEP1
+#en = Determine the residual network.
+#de = Bestimmen Sie das Residualnetzwerk.
+
+$EXERCISE_STEP2
+#en = Determine a path <i>w</i> (<i>select the nodes of the path in the residual network one after another so that a valid path develops or select nothing if their is no path</i>).
+#de = Bestimmen Sie einen Weg <i>w</i> (<i>wählen Sie die Knoten des Weges nacheinander im Residualnetzwerk aus, sodass ein korrekter Weg entsteht oder wählen Sie nichts, wenn es keinen Weg gibt</i>).
+
+$EXERCISE_STEP3
+#en = Will the algorithm stop?
+#de = Wird der Algorithmus gestoppt?
+
+$EXERCISE_STEP5
+#en = What is the flow <i>f</i> in the network after this step?<br>(<i>Tip: you can select an arc and enter the flow using the keyboard</i>)
+#de = Wie lautet der Fluss <i>f</i> im Netzwerk nach diesem Schritt?<br>(<i>Tipp: Sie können eine Kante auswählen und den Fluss über die Tastatur eingeben</i>)
+
+$EXERCISE_STEP2_MSG_ERR_NOPATH
+#en = The specified nodes do not describe a valid path in the residual network!%nChoose the nodes one after another so that a valid path develops.
+#de = Die von Ihnen angegeben Knoten beschreiben keinen gültigen Weg im Residualnetzwerk!%nWählen Sie die Knoten nacheinander aus, sodass ein gültiger Weg entsteht.
+
+$EXERCISE_STEP2_MSG_ERR_NOPATH_TITLE
+#en = Invalid path
+#de = Ungültiger Weg
+
+$EXERCISE_STEP3_YES
+#en = Yes
+#de = Ja
+
+$EXERCISE_STEP3_NO
+#en = No
+#de = Nein
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the views of the plugin
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$VIEW_NETWORK_TITLE
+#en = Network
+#de = Netzwerk
+
+$VIEW_ALGOTEXT_TITLE
+#en = Algorithm
+#de = Algorithmus
+
+$VIEW_RESIDUALNETWORK_TITLE
+#en = Residual Network
+#de = Residualnetzwerk
+
+$VIEW_LEGEND_TITLE
+#en = Legend
+#de = Legende
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the legend descriptions
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$LEGEND_NETWORK_SOURCE
+#en = The node s (source)
+#de = Der Knoten s (Quelle)
+
+$LEGEND_NETWORK_SINK
+#en = The node t (sink)
+#de = Der Knoten t (Senke)
+
+$LEGEND_NETWORK_CURREDGE
+#en = The current edge its flow becomes modified
+#de = Die aktuelle Kante deren Fluss verändert wird
+
+$LEGEND_RESIDUALNETWORK_PATH
+#en = The path w
+#de = Der Weg w
+
+$LEGEND_RESIDUALNETWORK_MINWEIGHTEDGE
+#en = The edge in the path w with a minimum weight
+#de = Die Kante im Weg w mit einem minimalen Gewicht
+
+$LEGEND_RESIDUALNETWORK_CURREDGE
+#en = The current edge of the path w
+#de = Die aktuelle Kante im Weg w
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// creator properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// customization properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTFOREGROUND
+#en = Foreground color of the current step in the algorithm
+#de = Vordergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTBACKGROUND
+#en = Background color of the current step in the algorithm
+#de = Hintergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_SOURCE
+#en = Background color of the source node in the network
+#de = Hintergrundfarbe des Quelle-Knotens im Netzwerk
+
+$CUSTOMIZE_COLOR_SINK
+#en = Background color of the sink node in the network
+#de = Hintergrundfarbe des Senke-Knotens im Netzwerk
+
+$CUSTOMIZE_COLOR_PATH
+#en = Color of the path in the residual network
+#de = Farbe des Wegs im Residualnetzwerk
+
+$CUSTOMIZE_COLOR_CURREDGE
+#en = Color of the current edge its flow is modified
+#de = Farbe der aktuellen Kante, deren Fluss verändert wird
+
+$CUSTOMIZE_LINEWIDTH_PATH
+#en = Line width of the path in the residual network
+#de = Linienstärke des Wegs im Residualnetzwerk
+
+$CUSTOMIZE_LINEWIDTH_MINWEIGHTEDGE
+#en = Line width of the edge in the path with a minimum weight
+#de = Linienstärke der Kante im Weg mit einem minimalen Gewicht
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// messages
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$MSG_ERROR_SAVEFILE
+#en = File could not be saved!
+#de = Datei konnte nicht gespeichert werden!
+
+$MSG_ERROR_SAVEFILE_TITLE
+#en = Save File
+#de = Datei speichern
+
+$MSG_ERROR_OPENFILE
+#en = File could not be opened!
+#de = Datei konnte nicht geöffnet werden!
+
+$MSG_ERROR_OPENFILE_TITLE
+#en = Open File
+#de = Datei öffnen
+
+$MSG_INFO_INVALIDFLOW
+#en = You have entered an invalid flow!%nThe flow does not complies with the flow conservation condition.
+#de = Sie haben einen ungültigen Fluss eingegeben!%nDer Fluss entspricht nicht der Flusserhaltungsbedingung.
+
+$MSG_INFO_INVALIDFLOW_TITLE
+#en = Invalid flow
+#de = Ungültiger Fluss

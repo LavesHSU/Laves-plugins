@@ -1,0 +1,305 @@
+﻿// Language file of the tripel algorithm plugin
+
+$LANGUAGES
+#en = English
+#de = Deutsch
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// general properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGO_NAME
+#en = Floyd-Warshall algorithm (Tripel algorithm)
+#de = Floyd-Warshall-Algorithmus (Tripel-Algorithmus)
+
+$ALGO_DESC
+#en = Finds the shortest paths between all pairs of vertices in a graph.
+#de = Findet die kürzesten Wege zwischen allen Paaren von Knoten eines Graphen.
+
+$ALGO_TYPE
+#en = Exact algorithm
+#de = Exaktes Verfahren
+
+$ALGO_ASSUMPTIONS
+#en = A simple, weighted graph G = (V, E) without circles of negative length.
+#de = Ein schlichter, gewichteter Graph G = (V, E) ohne Kreise negativer Länge.
+
+$ALGO_PROBLEMAFFILIATION
+#en = Shortest path problem
+#de = Kürzeste-Wege-Problem
+
+$ALGO_SUBJECT
+#en = Logistics
+#de = Logistik
+
+$ALGO_INSTRUCTIONS
+#en = <b>Creating problem entities</b>:<br>Create your own graph and make sure that the graph complies with the assumptions of the algorithm. You can use<br>the toolbar extension to create a graph by use of an adjacency matrix.<br><br><b>Exercise Mode</b>:<br>Activate the exercise mode to practice the algorithm in an interactive way. After you have started the algorithm<br>exercises are presented that you have to solve.<br>If an exercise can be solved directly in a view of the algorithm the corresponding view is highlighted with a border, there you can<br>enter your solution and afterwards you have to press the button to solve the exercise. Otherwise (if an exercise is not related to a specific<br>view) you can directly press the button to solve the exercise which opens a dialog where you can enter your solution of the exercise.
+#de = <b>Probleminstanzen erstellen</b>:<br>Erstellen Sie einen Graphen und achten Sie darauf, dass dieser die Voraussetzungen des Algorithmus erfüllt.<br>Über die Toolbar-Erweiterung können Sie einen Graphen mittels einer Adjazenzmatrix erstellen.<br><br><b>Übungsmodus</b>:<br>Aktivieren Sie den Übungsmodus, um den Algorithmus interaktiv zu erlernen. Nachdem Sie den Algorithmus gestartet haben, werden Ihnen<br>Übungsaufgaben gestellt, die Sie lösen müssen.<br>Wenn eine Aufgabe direkt in einer Ansicht des Algorithmus gelöst werden kann, wird die dazugehörige Ansicht mit einer Umrandung hervorgehoben,<br>in der Sie dann die Lösung eingeben können. Danach betätigen Sie den Button zum Lösen der Aufgabe. Ist ein Aufgabe nicht auf eine Ansicht<br>bezogen, können Sie direkt den Button zum Lösen der Aufgabe betätigen. Danach öffnet sich ein Dialog, in dem Sie die Lösung der Aufgabe<br>eingeben können.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the algorithm text
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGOTEXT_PARAGRAPH_INITIALIZATION
+#en = 1. Initialization:
+#de = 1. Initialisierung:
+
+$ALGOTEXT_PARAGRAPH_ITERATION
+#en = 2. Iteration:
+#de = 2. Iteration:
+
+$ALGOTEXT_STEP1_INITDANDP1
+#en = For all _latex{$v_i \in V$}: set _latex{$d(v_i,v_i) := 0$}, _latex{$p(v_i,v_i) := v_i$}.%n
+#de = Für alle _latex{$v_i \in V$}: setze _latex{$d(v_i,v_i) := 0$}, _latex{$p(v_i,v_i) := v_i$}.%n
+
+$ALGOTEXT_STEP2_INITDANDP2
+#en = For all _latex{$v_i,v_j \in V$}, _latex{$i \neq j$}: set%n_latex{$p(v_i,v_j) = \begin{cases} v_i, \; if \; (v_i,v_j) \in E \\ 0, \; else \end{cases}$}%n_latex{$d(v_i,v_j) = \begin{cases} c(v_i,v_j), \; if \; (v_i,v_j) \in E \\ \inf, \; else \end{cases}$}.%n%n
+#de = Für alle _latex{$v_i,v_j \in V$}, _latex{$i \neq j$}: setze%n_latex{$p(v_i,v_j) = \begin{cases} v_i, \; falls \; (v_i,v_j) \in E \\ 0, \; sonst \end{cases}$}%n_latex{$d(v_i,v_j) = \begin{cases} c(v_i,v_j), \; falls \; (v_i,v_j) \in E \\ \infty, \; sonst \end{cases}$}.%n%n
+
+$ALGOTEXT_STEP3_FORALLTRANSITVERTICES
+#en = For all vertices _latex{$v_t \in V$} (transit vertices)
+#de = Für alle Knoten _latex{$v_t \in V$} (Transitknoten)
+
+$ALGOTEXT_STEP4_FORALLSOURCEVERTICES
+#en = For all vertices _latex{$v_s \in V$}, _latex{$v_s \neq v_t$} (source vertices)
+#de = Für alle Knoten _latex{$v_s \in V$}, _latex{$v_s \neq v_t$} (Startknoten)
+
+$ALGOTEXT_STEP5_FORALLTARGETVERTICES
+#en = For all vertices _latex{$v_z \in V$}, _latex{$v_z \neq v_z$}, _latex{$v_z \neq v_t$} (target vertices)
+#de = Für alle Knoten _latex{$v_z \in V$}, _latex{$v_z \neq v_z$}, _latex{$v_z \neq v_t$} (Zielknoten)
+
+$ALGOTEXT_STEP6_UPDATEDANDP
+#en = If _latex{$d(v_s,v_t) + d(v_t,v_z) < d(v_s,v_z)$}%n
+#de = Wenn _latex{$d(v_s,v_t) + d(v_t,v_z) < d(v_s,v_z)$},%n
+
+$ALGOTEXT_STEP7_UPDATEDANDP
+#en = then set _latex{$d(v_s,v_z) = d(v_s,v_t) + d(v_t,v_z)$} and _latex{$p(v_s,v_z) = p(v_t,v_z)$}.
+#de = setze _latex{$d(v_s,v_z) = d(v_s,v_t) + d(v_t,v_z)$} und _latex{$p(v_s,v_z) = p(v_t,v_z)$}.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the exercises of the algorithm steps
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$EXERCISE_SETP1
+#en = Initialize the distance matrix <i>D</i> and the predecessor matrix <i>P</i>.
+#de = Initialisieren Sie die Distanzmatrix <i>D</i> und die Vorgängermatrix <i>P</i>.
+
+$EXERCISE_STEP2
+#en = What are <i>D</i> and <i>P</i> after this step (<i>use "-" as infinity</i>)?
+#de = Wie lauten <i>D</i> und <i>P</i> nach diesem Schritt (<i>nutzen Sie "-" für unendlich</i>)?
+
+$EXERCISE_STEP6
+#en = Is d(v<sub>s</sub>,v<sub>t</sub>) + d(v<sub>t</sub>,v<sub>z</sub>) &lt; d(v<sub>s</sub>,v<sub>z</sub>)?
+#de = Ist d(v<sub>s</sub>,v<sub>t</sub>) + d(v<sub>t</sub>,v<sub>z</sub>) &lt; d(v<sub>s</sub>,v<sub>z</sub>)?
+
+$EXERCISE_STEP7
+#en = What are <i>D</i> and <i>P</i> after this step?
+#de = Wie lauten <i>D</i> und <i>P</i> nach diesem Schritt?
+
+$FINAL_EXERCISE
+#en = What is the shortest path from vertex &v_i& to vertex &v_j& and how long is this path?
+#de = Wie lautet der kürzeste Weg von Knoten &v_i& zu Knoten &v_j& und wie lang ist er?
+
+$EXERCISE_HINT_SETINPUT
+#en = Use a comma as the delimiter!
+#de = Nutzen Sie ein Komma als Trennzeichen!
+
+$EXERCISE_STEP6_YES
+#en = Yes
+#de = Ja
+
+$EXERCISE_STEP6_NO
+#en = No
+#de = Nein
+
+$FINAL_EXERCISE_PATH
+#en = Path =
+#de = Weg =
+
+$FINAL_EXERCISE_LENGTH
+#en = Length =
+#de = Länge =
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the views of the plugin
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$VIEW_GRAPH_TITLE
+#en = Graph
+#de = Graph
+
+$VIEW_ALGOTEXT_TITLE
+#en = Algorithm
+#de = Algorithmus
+
+$VIEW_ASSISTANTTABLE_TITLE
+#en = Assistant Table
+#de = Helfer-Tabelle
+
+$VIEW_ASSISTANTTABLE_COLUMNCHANGE
+#en = Change?
+#de = Änderung?
+
+$VIEW_ASSISTANTTABLE_COLUMNCHANGEDIST
+#en = Change in <i>D</i>
+#de = Änderung <i>D</i>
+
+$VIEW_ASSISTANTTABLE_COLUMNCHANGEPRED
+#en = Change in <i>P</i>
+#de = Änderung <i>P</i>
+
+$VIEW_MATRIXD_TITLE
+#en = Matrix D (distance matrix)
+#de = Matrix D (Distanzmatrix)
+
+$VIEW_MATRIXP_TITLE
+#en = Matrix P (predecessor matrix)
+#de = Matrix P (Vorgängermatrix)
+
+$VIEW_LEGEND_TITLE
+#en = Legend
+#de = Legende
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the legend descriptions
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$LEGEND_GRAPH_TRANSITVERTEX
+#en = Current transit vertex v<sub>t</sub>
+#de = Aktueller Transitknoten v<sub>t</sub>
+
+$LEGEND_GRAPH_SOURCEVERTEX
+#en = Current source vertex v<sub>s</sub>
+#de = Aktueller Startknoten v<sub>s</sub>
+
+$LEGEND_GRAPH_TARGETVERTEX
+#en = Current target vertex v<sub>z</sub>
+#de = Aktueller Zielknoten v<sub>z</sub>
+
+$LEGEND_GRAPH_HIGHLIGHTEDV_I
+#en = Vertex v<sub>i</sub> that is currently under investigation
+#de = Knoten v<sub>i</sub>, der gerade untersucht wird
+
+$LEGEND_GRAPH_HIGHLIGHTEDV_J
+#en = Vertex v<sub>j</sub> that is currently under investigation
+#de = Knoten v<sub>j</sub>, der gerade untersucht wird
+
+$LEGEND_GRAPH_HIGHLIGHTEDEDGE
+#en = Edge (v<sub>i</sub>, v<sub>j</sub>) that is currently under investigation
+#de = Kante (v<sub>i</sub>, v<sub>j</sub>), die gerade untersucht wird
+
+$LEGEND_ASSISTANTTABLE_SMALLERDIST
+#en = Their is a shorter path taking the transit vertex
+#de = Es gibt einen kürzeren Weg über den Transitknoten
+
+$LEGEND_ASSISTANTTABLE_CHANGE
+#en = Change in D or P
+#de = Änderung in D oder P
+
+$LEGEND_MATRIXD_MODIFICATION
+#en = Modification of matrix D
+#de = Veränderung in Matrix D
+
+$LEGEND_MATRIXP_MODIFICATION
+#en = Modification of matrix P
+#de = Veränderung in Matrix P
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// creator properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CREATORPREFS_DIRECTED
+#en = directed
+#de = gerichtet
+
+$CREATORPREFS_DIRECTED_DESC
+#en = Apply algorithm to a directed graph
+#de = Algorithmus auf gerichteten Graphen anwenden
+
+$CREATORPREFS_UNDIRECTED
+#en = undirected
+#de = ungerichtet
+
+$CREATORPREFS_UNDIRECTED_DESC
+#en = Apply algorithm to an undirected graph
+#de = Algorithmus auf ungerichteten Graphen anwenden
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// customization properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTFOREGROUND
+#en = Foreground color of the current step in the algorithm
+#de = Vordergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTBACKGROUND
+#en = Background color of the current step in the algorithm
+#de = Hintergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_TRANSITVERTEX
+#en = Background color of the transit vertex
+#de = Hintergrundfarbe des Transit-Knotens
+
+$CUSTOMIZE_COLOR_SOURCEVERTEX
+#en = Background color of the source vertex
+#de = Hintergrundfarbe des Start-Knotens
+
+$CUSTOMIZE_COLOR_TARGETVERTEX
+#en = Background color of the target vertex
+#de = Hintergrundfarbe des Ziel-Knotens
+
+$CUSTOMIZE_COLOR_HIGHLIGHTEDVERTICES
+#en = Background color of the vertices that are currently investigated
+#de = Hintergrundfarbe der Knoten, die gerade untersucht werden
+
+$CUSTOMIZE_COLOR_HIGHLIGHTEDEDGE
+#en = Color of the edge that is currently investigated
+#de = Farbe der Kante, die gerade untersucht wird
+
+$CUSTOMIZE_COLOR_SMALLERDIST
+#en = Background color of an assistant table cell that indicates a smaller distance
+#de = Hintergrundfarbe einer Zelle in der Helfer-Tabelle, die eine geringere Distanz anzeigt
+
+$CUSTOMIZE_COLOR_MODIFICATIONS
+#en = Color of modifications to objects
+#de = Farbe von Veränderungen an Objekten
+
+$CUSTOMIZE_LINEWIDTH_TRANSITVERTEX
+#en = Line width of the transit vertex
+#de = Linienstärke des Transit-Knotens
+
+$CUSTOMIZE_LINEWIDTH_SOURCEVERTEX
+#en = Line width of the source vertex
+#de = Linienstärke des Start-Knotens
+
+$CUSTOMIZE_LINEWIDTH_TARGETVERTEX
+#en = Line width of the target vertex
+#de = Linienstärke des Ziel-Knotens
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// messages
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$MSG_ERROR_SAVEFILE
+#en = File could not be saved!
+#de = Datei konnte nicht gespeichert werden!
+
+$MSG_ERROR_SAVEFILE_TITLE
+#en = Save File
+#de = Datei speichern
+
+$MSG_ERROR_OPENFILE
+#en = File could not be opened!
+#de = Datei konnte nicht geöffnet werden!
+
+$MSG_ERROR_OPENFILE_TITLE
+#en = Open File
+#de = Datei öffnen
+
+$MSG_INFO_NOTVALID
+#en = The created graph is not valid!%nThe Floyd-Warshall algorithm can only be applied to directed graphs that have no circles of negative length and%nto undirected graphs that have no negative weights.
+#de = Der erstellte Graph ist nicht gültig!%nDer Floyd-Warshall-Algorithmus kann nur auf gerichtete Graphen, die keine Kreise negativer Länge besitzen und%nauf ungerichtete Graphen, die keine negativen Kantengewichte haben, angewendet werden.
+
+$MSG_INFO_NOTCONNECTED_TITLE
+#en = Graph not valid
+#de = Ungültiger Graph

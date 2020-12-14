@@ -1,0 +1,289 @@
+﻿// Language file of the greedy algorithm plugin
+
+$LANGUAGES
+#en = English
+#de = Deutsch
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// general properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGO_NAME
+#en = Greedy algorithm
+#de = Greedyverfahren
+
+$ALGO_DESC
+#en = Finds a perfect matching <i>M</i> with a low weight of the edges.
+#de = Findet ein perfektes Matching <i>M</i> mit geringem Gewicht der Kanten.
+
+$ALGO_TYPE
+#en = Heuristic
+#de = Heuristik
+
+$ALGO_ASSUMPTIONS
+#en = A weighted complete graph K<sub>n</sub> with <i>n mod 2 = 0</i> (even number of vertices) or a weighted complete bipartite graph K<sub>n/2,n/2</sub>, n = |V|.
+#de = Ein gewichteter vollständiger Graph K<sub>n</sub> mit <i>n mod 2 = 0</i> (gerade Knotenanzahl) oder ein gewichteter vollständig bipartiter Graph K<sub>n/2,n/2</sub>, n = |V|.
+
+$ALGO_PROBLEMAFFILIATION
+#en = Matching problem
+#de = Matchingprobleme
+
+$ALGO_SUBJECT
+#en = Logistics
+#de = Logistik
+
+$ALGO_INSTRUCTIONS
+#en = <b>Creating problem entities</b>:<br>Create your own graph and make sure that the graph complies with the assumptions of the algorithm. You can use<br>the toolbar extensions to check whether the created graph is complete or complete bipartite, to create a complete graph or a complete bipartite graph<br>by indicating the number of vertices, to create a graph by use of an adjacency matrix or you can arrange the vertices of your created graph<br>in a predefined layout.<br><br><b>Exercise Mode</b>:<br>Activate the exercise mode to practice the algorithm in an interactive way. After you have started the algorithm<br>exercises are presented that you have to solve.<br>If an exercise can be solved directly in a view of the algorithm the corresponding view is highlighted with a border, there you can<br>enter your solution and afterwards you have to press the button to solve the exercise. Otherwise (if an exercise is not related to a specific<br>view) you can directly press the button to solve the exercise which opens a dialog where you can enter your solution of the exercise.
+#de = <b>Probleminstanzen erstellen</b>:<br>Erstellen Sie einen Graphen und achten Sie darauf, dass dieser die Voraussetzungen des Algorithmus erfüllt.<br>Über die Toolbar-Erweiterungen können Sie überprüfen, ob der erstellte Graph vollständig oder vollständig bipartit ist, einen vollständigen<br>Graphen oder einen vollständig bipartiten Graphen erstellen, indem Sie die Anzahl Knoten angeben, einen Graphen mittels einer Adjazenzmatrix<br>erstellen oder die Knoten eines erstellten Graphen in einem vordefinierten Layout ausrichten.<br><br><b>Übungsmodus</b>:<br>Aktivieren Sie den Übungsmodus, um den Algorithmus interaktiv zu erlernen. Nachdem Sie den Algorithmus gestartet haben, werden Ihnen<br>Übungsaufgaben gestellt, die Sie lösen müssen.<br>Wenn eine Aufgabe direkt in einer Ansicht des Algorithmus gelöst werden kann, wird die dazugehörige Ansicht mit einer Umrandung hervorgehoben,<br>in der Sie dann die Lösung eingeben können. Danach betätigen Sie den Button zum Lösen der Aufgabe. Ist ein Aufgabe nicht auf eine Ansicht<br>bezogen, können Sie direkt den Button zum Lösen der Aufgabe betätigen. Danach öffnet sich ein Dialog, in dem Sie die Lösung der Aufgabe<br>eingeben können.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the algorithm text
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGOTEXT_PARAGRAPH_INITIALIZATION
+#en = 1. Initialization:
+#de = 1. Initialisierung:
+
+$ALGOTEXT_PARAGRAPH_MATCHINGEXPANSION
+#en = 2. Matching expansion:
+#de = 2. Matchingerweiterung:
+
+$ALGOTEXT_PARAGRAPH_UPDATEL
+#en = 3. Update L:
+#de = 3. Aktualisierung von L:
+
+$ALGOTEXT_PARAGRAPH_STOPCRITERION
+#en = 4. Stop criterion:
+#de = 4. Stoppkriterium:
+
+$ALGOTEXT_STEP1_INIT
+#en = Let _latex{$M := \emptyset$}.%nLet _latex{$L := E$} be the list of all edges of the graph.%n
+#de = Sei _latex{$M := \emptyset$}.%nSei _latex{$L := E$} die Liste aller Kanten des Graphen.%n
+
+$ALGOTEXT_STEP2_SORT
+#en = Sort _latex{$L$} non-decreasingly by the weight of the edges.%n%n
+#de = Sortiere _latex{$L$} nicht absteigend nach dem Gewicht der Kanten.%n%n
+
+$ALGOTEXT_STEP3_EXPANSION1
+#en = Let _latex{$(v_i,v_j)$} be the first edge in _latex{$L$}. 
+#de = Sei _latex{$(v_i,v_j)$} die erste Kante in _latex{$L$}. 
+
+$ALGOTEXT_STEP4_EXPANSION2
+#en = Add _latex{$(v_i,v_j)$} to the matching _latex{$M$}.%n%n
+#de = Füge _latex{$(v_i,v_j)$} dem Matching _latex{$M$} hinzu.%n%n
+
+$ALGOTEXT_STEP5_UPDATEL
+#en = Delete all edges from _latex{$L$} which have _latex{$v_i$} or _latex{$v_j$} as endpoint.%n%n
+#de = Entferne alle Kanten aus _latex{$L$}, die _latex{$v_i$} oder _latex{$v_j$} als Endpunkt haben.%n%n
+
+$ALGOTEXT_STEP6_STOP
+#en = If _latex{$L = \emptyset$} then stop. Otherwise go to step 2.
+#de = Wenn _latex{$L = \emptyset$}, dann Stopp. Ansonsten gehe zu Schritt 2.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the exercises of the algorithm steps
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$EXERCISE_STEP2
+#en = Sort <i>L</i> (<i>use the arrows in the list to change the positions of the edges</i>).
+#de = Sortieren Sie <i>L</i> (<i>benutzen Sie die Pfeile, um die Positionen der Kanten zu verändern</i>).
+
+$EXERCISE_STEP3
+#en = Select the edge (v<sub>i</sub>, v<sub>j</sub>) in the graph.
+#de = Wählen Sie die Kante (v<sub>i</sub>, v<sub>j</sub>) im Graphen aus.
+
+$EXERCISE_STEP4
+#en = What is <i>M</i> after this step (<i>select all matched edges in the graph</i>)?
+#de = Wie lautet <i>M</i> nach diesem Schritt (<i>wählen Sie die Matchingkanten im Graphen aus</i>)?
+
+$EXERCISE_STEP5
+#en = Which edges will be removed from <i>L</i>?
+#de = Welche Kanten werden aus <i>L</i> entfernt?
+
+$EXERCISE_STEP6
+#en = Will the algorithm stop?
+#de = Wird das Verfahren gestoppt?
+
+$EXERCISE_STEP4_INPUTHINT
+#en = <b>Select matched edges</b>:<br>Select the matched edges in the graph by using the mouse and pressing the <b>Ctrl</b>-key on your keyboard.<br>Afterwards click on the "Solve Exercise"-button of the task.
+#de = <b>Matchingkanten auswählen</b>:<br>Wählen Sie die Matchingkanten im Graphen aus, indem Sie die Maus benutzen und die <b>Strg</b>-Taste auf Ihrer Tastatur gedrückt halten.<br>Klicken Sie anschließend auf den "Aufgabe lösen"-Button der Aufgabe.
+
+$EXERCISE_STEP5_REMOVE
+#en = remove?
+#de = entfernen?
+
+$EXERCISE_STEP6_YES
+#en = Yes
+#de = Ja
+
+$EXERCISE_STEP6_NO
+#en = No
+#de = Nein
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the views of the plugin
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$VIEW_GRAPH_TITLE
+#en = Graph
+#de = Graph
+
+$VIEW_ALGOTEXT_TITLE
+#en = Algorithm
+#de = Algorithmus
+
+$VIEW_LIST_TITLE
+#en = List L
+#de = Liste L
+
+$VIEW_LIST_COLUMNEDGE
+#en = Edge
+#de = Kante
+
+$VIEW_LIST_COLUMNWEIGHT
+#en = Weight
+#de = Gewicht
+
+$VIEW_ADJACENCYMATRIX_TITLE
+#en = Adjacency Matrix
+#de = Adjazenzmatrix
+
+$VIEW_MATCHING_TITLE
+#en = Matching M
+#de = Matching M
+
+$VIEW_LEGEND_TITLE
+#en = Legend
+#de = Legende
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the legend descriptions
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$LEGEND_GRAPH_MATCHEDEDGES
+#en = The matched edges of matching M
+#de = Die Matchingkanten des Matchings M
+
+$LEGEND_GRAPH_CURREDGE
+#en = The current edge (v<sub>i</sub>, v<sub>j</sub>)
+#de = Die aktuelle Kante (v<sub>i</sub>, v<sub>j</sub>)
+
+$LEGEND_GRAPH_V_I_V_J
+#en = The vertices v<sub>i</sub> and v<sub>j</sub> of the current matched edge
+#de = Die Knoten v<sub>i</sub> und v<sub>j</sub> der aktuellen Matchingkante
+
+$LEGEND_GRAPH_REMOVABLEEDGE
+#en = Edge that shares an endpoint with the current edge (v<sub>i</sub>, v<sub>j</sub>) and has to be removed from L
+#de = Kante, die sich mit der aktuellen Kante (v<sub>i</sub>, v<sub>j</sub>) einen Endpunkt teilt und aus L entfernt wird
+
+$LEGEND_MATCHING_MODIFICATION
+#en = The matching M becomes modified
+#de = Das Matching M wird verändert
+
+$LEGEND_LIST_CURREDGE
+#en = The current edge (v<sub>i</sub>, v<sub>j</sub>)
+#de = Die aktuelle Kante (v<sub>i</sub>, v<sub>j</sub>)
+
+$LEGEND_LIST_REMOVABLEEDGE
+#en = Edge that shares an endpoint with the current edge (v<sub>i</sub>, v<sub>j</sub>) and has to be removed from L
+#de = Kante, die sich mit der aktuellen Kante (v<sub>i</sub>, v<sub>j</sub>) einen Endpunkt teilt und aus L entfernt wird
+
+$LEGEND_ADJACENCYMATRIX_CURREDGE
+#en = The current edge (v<sub>i</sub>, v<sub>j</sub>)
+#de = Die aktuelle Kante (v<sub>i</sub>, v<sub>j</sub>)
+
+$LEGEND_ADJACENCYMATRIX_STRIKEOUT
+#en = Striked off vertices its edge was added to the matching M
+#de = Gestrichene Knoten, deren Kante dem Matching M hinzugefügt wurde
+
+$LEGEND_ADJACENCYMATRIX_OPTIONAL
+#en = optional
+#de = optional
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// creator properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CREATORPREFS_DISPLAYMODE
+#en = Display Mode
+#de = Darstellungsmodus
+
+$CREATORPREFS_DISPLAYMODE_DESC
+#en = Choose the display mode of the algorithm
+#de = Wählen Sie den Darstellungsmodus des Algorithmus
+
+$CREATORPREFS_DISPLAYMODE_WOAM
+#en = Without Adjacency Matrix
+#de = Ohne Adjazenzmatrix
+
+$CREATORPREFS_DISPLAYMODE_WAM
+#en = With Adjacency Matrix
+#de = Mit Adjazenzmatrix
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// customization properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTFOREGROUND
+#en = Foreground color of the current step in the algorithm
+#de = Vordergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTBACKGROUND
+#en = Background color of the current step in the algorithm
+#de = Hintergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_MATCHEDEDGES
+#en = Color of the matching edges
+#de = Farbe der Matchingkanten
+
+$CUSTOMIZE_COLOR_CURREDGE
+#en = Color of the current edge (v<sub>i</sub>, v<sub>j</sub>)
+#de = Farbe der aktuellen Kante (v<sub>i</sub>, v<sub>j</sub>)
+
+$CUSTOMIZE_COLOR_EDGETOREMOVE
+#en = Color of the edge that has to be removed from L
+#de = Farbe der Kante, die aus L entfernt werden muss
+
+$CUSTOMIZE_COLOR_MODIFICATIONS
+#en = Color of modifications to objects
+#de = Farbe von Veränderungen an Objekten
+
+$CUSTOMIE_LINEWIDTH_MATCHEDEDGES
+#en = Line width of matching edges
+#de = Linienstärke der Matchingkanten
+
+$CUSTOMIE_LINEWIDTH_CURREDGE
+#en = Line width of the current edge (v<sub>i</sub>, v<sub>j</sub>)
+#de = Linienstärke der aktuellen Kante (v<sub>i</sub>, v<sub>j</sub>)
+
+$CUSTOMIE_LINEWIDTH_EDGETOREMOVE
+#en = Line width of the edge that has to be removed from L
+#de = Linienstärke der Kante, die aus L entfernt werden muss
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// messages
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$MSG_ERROR_SAVEFILE
+#en = File could not be saved!
+#de = Datei konnte nicht gespeichert werden!
+
+$MSG_ERROR_SAVEFILE_TITLE
+#en = Save File
+#de = Datei speichern
+
+$MSG_ERROR_OPENFILE
+#en = File could not be opened!
+#de = Datei konnte nicht geöffnet werden!
+
+$MSG_ERROR_OPENFILE_TITLE
+#en = Open File
+#de = Datei öffnen
+
+$MSG_INFO_GRAPHNOTPERMISSIBLE
+#en = The created graph is not permissible!%nThe graph has to fulfill the assumptions (see information bar).
+#de = Der erstellte Graph ist nicht zulässig!%nDer Graph muss die Voraussetzungen erfüllen (siehe Informationsleiste).
+
+$MSG_INFO_GRAPHNOTPERMISSIBLE_TITLE
+#en = Impermissible graph
+#de = Unzulässiger Graph

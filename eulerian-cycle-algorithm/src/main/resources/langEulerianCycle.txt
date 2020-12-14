@@ -1,0 +1,269 @@
+﻿// Language file of the eulerian cycle algorithm plugin
+
+$LANGUAGES
+#en = English
+#de = Deutsch
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// general properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGO_NAME
+#en = Eulerian cycle algorithm
+#de = Eulersche Tour Algorithmus
+
+$ALGO_DESC
+#en = Finds an Eulerian cycle in an Eulerian graph.
+#de = Findet eine Eulersche Tour in einem Euler-Graphen.
+
+$ALGO_TYPE
+#en = Exact algorithm
+#de = Exaktes Verfahren
+
+$ALGO_ASSUMPTIONS
+#en = A connected Eulerian graph <i>G = (V, E)</i>.
+#de = Ein zusammenhängender Euler-Graph <i>G = (V, E)</i>.
+
+$ALGO_PROBLEMAFFILIATION
+#en = Chinese postman problem
+#de = Briefträgerproblem
+
+$ALGO_SUBJECT
+#en = Logistics
+#de = Logistik
+
+$ALGO_INSTRUCTIONS
+#en = <b>Creating problem entities</b>:<br>Create your own graph and make sure that the graph complies with the assumptions of the algorithm. You can use<br>the toolbar extension to create a graph by use of an adjacency matrix.<br><br><b>Exercise Mode</b>:<br>Activate the exercise mode to practice the algorithm in an interactive way. After you have started the algorithm<br>exercises are presented that you have to solve.<br>If an exercise can be solved directly in a view of the algorithm the corresponding view is highlighted with a border, there you can<br>enter your solution and afterwards you have to press the button to solve the exercise. Otherwise (if an exercise is not related to a specific<br>view) you can directly press the button to solve the exercise which opens a dialog where you can enter your solution of the exercise.
+#de = <b>Probleminstanzen erstellen</b>:<br>Erstellen Sie einen Graphen und achten Sie darauf, dass dieser die Voraussetzungen des Algorithmus erfüllt.<br>Über die Toolbar-Erweiterung können Sie einen Graphen mittels einer Adjazenzmatrix erstellen.<br><br><b>Übungsmodus</b>:<br>Aktivieren Sie den Übungsmodus, um den Algorithmus interaktiv zu erlernen. Nachdem Sie den Algorithmus gestartet haben, werden Ihnen<br>Übungsaufgaben gestellt, die Sie lösen müssen.<br>Wenn eine Aufgabe direkt in einer Ansicht des Algorithmus gelöst werden kann, wird die dazugehörige Ansicht mit einer Umrandung hervorgehoben,<br>in der Sie dann die Lösung eingeben können. Danach betätigen Sie den Button zum Lösen der Aufgabe. Ist ein Aufgabe nicht auf eine Ansicht<br>bezogen, können Sie direkt den Button zum Lösen der Aufgabe betätigen. Danach öffnet sich ein Dialog, in dem Sie die Lösung der Aufgabe<br>eingeben können.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the algorithm text
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGOTEXT_PARAGRAPH_INITIALIZATION
+#en = 1. Initialization:
+#de = 1. Initialisierung:
+
+$ALGOTEXT_PARAGRAPH_STOPCRITERION
+#en = 2. Stop criterion:
+#de = 2. Stoppkriterium:
+
+$ALGOTEXT_PARAGRAPH_ADDITIONALCYCLE
+#en = 3. Additional cycle:
+#de = 3. Zusatzkreis:
+
+$ALGOTEXT_PARAGRAPH_ENLARGMENT
+#en = 4. Enlargment:
+#de = 4. Vergrößerung:
+
+$ALGOTEXT_STEP1_INIT
+#en = Choose a _latex{$v_1 \in V$}.%n
+#de = Wähle ein _latex{$v_1 \in V$}.%n
+
+$ALGOTEXT_STEP2_INIT
+#en = Find a cycle _latex{$W$} ensuing from _latex{$v_1$}.%n%n
+#de = Bestimme ausgehend von _latex{$v_1$} einen Kreis _latex{$W$}.%n%n
+
+$ALGOTEXT_STEP3_STOP
+#en = If _latex{$W$} contains all edges of _latex{$G$} then stop.%n
+#de = Falls _latex{$W$} alle Kanten von _latex{$G$} enthält, dann Stopp.%n
+
+$ALGOTEXT_STEP4_STOP
+#en = Otherwise find a vertex _latex{$v_k$} that is endpoint of at least two edges, one of them is contained in _latex{$W$} and one of them not.%n%n
+#de = Andernfalls bestimme einen Knoten _latex{$v_k$}, der Endpunkt mindestens zweier Kanten ist, von denen eine in _latex{$W$} enthalten ist und eine nicht.%n%n
+
+$ALGOTEXT_STEP5_ADDITIONALCYCLE
+#en = Find a cycle _latex{$W'$} ensuing from _latex{$v_1$} that does not contain any edge of _latex{$W$}.%n%n
+#de = Bestimme, ausgehend von _latex{$v_k$}, einen Kreis _latex{$W'$}, der keine Kanten enthält, die bereits in _latex{$W$} vorkommen.%n%n
+
+$ALGOTEXT_STEP6_ENLARGMENT
+#en = Enlarge the cycle _latex{$W$} by inserting the cycle _latex{$W'$} at the position of _latex{$v_k$}.%n
+#de = Vergrößere den Kreis _latex{$W$}, indem an der Stelle _latex{$v_k$} der Kreis _latex{$W'$} eingefügt wird.%n
+
+$ALGOTEXT_STEP7_ENLARGMENT
+#en = Go to step 2.
+#de = Gehe zu Schritt 2.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the exercises of the algorithm steps
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$EXERCISE_STEP1
+#en = Select a vertex <i>v<sub>1</sub></i>.
+#de = Wählen Sie einen Knoten <i>v<sub>1</sub></i>.
+
+$EXERCISE_STEP2
+#en = Specify a cycle <i>W</i>.
+#de = Geben Sie einen Kreis <i>W</i> an.
+
+$EXERCISE_STEP3
+#en = Will the algorithm stop?
+#de = Wird das Verfahren gestoppt?
+
+$EXERCISE_STEP4
+#en = Find a vertex <i>v<sub>k</sub></i> (<i>select the vertex in the graph</i>).
+#de = Bestimmen Sie einen Knoten <i>v<sub>k</sub></i> (<i>wählen Sie ihn im Graphen aus</i>).
+
+$EXERCISE_STEP5
+#en = Specify a cycle <i>W'</i>.
+#de = Geben Sie einen Kreis <i>W'</i> an.
+
+$EXERCISE_STEP6
+#en = What is <i>W</i> after this step?
+#de = Wie lautet <i>W</i> nach diesem Schritt?
+
+$EXERCISE_HINT_CYCLEINPUT
+#en = Use a comma as the delimiter!<br>Enter the cycle in the following form: v<sub>i</sub>, v<sub>j</sub>, v<sub>k</sub>, ..., v<sub>i</sub>.
+#de = Nutzen Sie ein Komma als Trennzeichen!<br>Geben Sie den Kreis in folgender Form an: v<sub>i</sub>, v<sub>j</sub>, v<sub>k</sub>, ..., v<sub>i</sub>.
+
+$EXERCISE_STEP3_YES
+#en = Yes
+#de = Ja
+
+$EXERCISE_STEP3_NO
+#en = No
+#de = Nein
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the views of the plugin
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$VIEW_GRAPH_TITLE
+#en = Graph
+#de = Graph
+
+$VIEW_ALGOTEXT_TITLE
+#en = Algorithm
+#de = Algorithmus
+
+$VIEW_CYCLE_W_TITLE
+#en = Cycle W
+#de = Kreis W
+
+$VIEW_CYCLE_W_APOSTROPHE_TITLE
+#en = Cycle W'
+#de = Kreis W'
+
+$VIEW_LEGEND_TITLE
+#en = Legend
+#de = Legende
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the legend descriptions
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$LEGEND_GRAPH_V1
+#en = The vertex v<sub>1</sub>
+#de = Der Knoten v<sub>1</sub>
+
+$LEGEND_GRAPH_V_k
+#en = The current vertex v<sub>k</sub>
+#de = Der aktuelle Knoten v<sub>k</sub>
+
+$LEGEND_GRAPH_W
+#en = The current cycle W
+#de = Der aktuelle Kreis W
+
+$LEGEND_GRAPH_W_APOSTROPHE
+#en = The current cycle W'
+#de = Der aktuelle Kreis W'
+
+$LEGEND_CYCLE_W_MODIFICATION
+#en = The cycle W becomes modified
+#de = Der Kreis W wird verändert
+
+$LEGEND_CYCLE_W_APOSTROPHE_MODIFICATION
+#en = The cycle W' becomes modified
+#de = Der Kreis W' wird verändert
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// creator properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CREATORPREFS_DIRECTED
+#en = directed
+#de = gerichtet
+
+$CREATORPREFS_DIRECTED_DESC
+#en = Apply algorithm to a directed graph
+#de = Algorithmus auf gerichteten Graphen anwenden
+
+$CREATORPREFS_UNDIRECTED
+#en = undirected
+#de = ungerichtet
+
+$CREATORPREFS_UNDIRECTED_DESC
+#en = Apply algorithm to an undirected graph
+#de = Algorithmus auf ungerichteten Graphen anwenden
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// customization properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTFOREGROUND
+#en = Foreground color of the current step in the algorithm
+#de = Vordergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTBACKGROUND
+#en = Background color of the current step in the algorithm
+#de = Hintergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_V1
+#en = Background color of the vertex v<sub>1</sub>
+#de = Hintergrundfarbe des Knotens v<sub>1</sub>
+
+$CUSTOMIZE_COLOR_V_k
+#en = Background color of the vertex v<sub>k</sub>
+#de = Hintergrundfarbe des Knotens v<sub>k</sub>
+
+$CUSTOMIZE_COLOR_W
+#en = Color of the cycle W
+#de = Farbe des Kreises W
+
+$CUSTOMIZE_COLOR_W_APOSTROPHE
+#en = Color of the cycle W'
+#de = Farbe des Kreises W'
+
+$CUSTOMIZE_LINEWIDTH_V1
+#en = Line width of the vertex v<sub>1</sub>
+#de = Linienstärke des Knotens v<sub>1</sub>
+
+$CUSTOMIZE_LINEWIDTH_V_k
+#en = Line width of the vertex v<sub>k</sub>
+#de = Linienstärke des Knotens v<sub>k</sub>
+
+$CUSTOMIZE_LINEWIDTH_W
+#en = Line width of the cycle W
+#de = Linienstärke des Kreises W
+
+$CUSTOMIZE_LINEWIDTH_W_APOSTROPHE
+#en = Line width of the cycle W'
+#de = Linienstärke des Kreises W'
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// messages
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$MSG_ERROR_SAVEFILE
+#en = File could not be saved!
+#de = Datei konnte nicht gespeichert werden!
+
+$MSG_ERROR_SAVEFILE_TITLE
+#en = Save File
+#de = Datei speichern
+
+$MSG_ERROR_OPENFILE
+#en = File could not be opened!
+#de = Datei konnte nicht geöffnet werden!
+
+$MSG_ERROR_OPENFILE_TITLE
+#en = Open File
+#de = Datei öffnen
+
+$MSG_INFO_NOTEULERIAN
+#en = The created graph is not eulerian!%nThe algorithm can only be applied to Eulerian graphs.
+#de = Der erstellte Graph ist nicht eulersch!%nDer Algorithmus kann nur auf Euler-Graphen angewendet werden.
+
+$MSG_INFO_NOTEULERIAN_TITLE
+#en = No Eulerian graph
+#de = Kein Euler-Graph

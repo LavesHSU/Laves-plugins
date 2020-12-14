@@ -1,0 +1,277 @@
+﻿// Language file of the hungarian method plugin
+
+$LANGUAGES
+#en = English
+#de = Deutsch
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// general properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGO_NAME
+#en = Hungarian method
+#de = Ungarische Methode
+
+$ALGO_DESC
+#en = Finds a maximal matching in a graph.
+#de = Findet ein maximales Matching in einem Graphen.
+
+$ALGO_TYPE
+#en = Exact algorithm
+#de = Exaktes Verfahren
+
+$ALGO_ASSUMPTIONS
+#en = A bipartite graph G = (V<sub>1</sub> &cup; V<sub>2</sub>, E), where V<sub>1</sub> is the partition with fewer or equivalent elements and a matching M (poss. M = &Oslash;).
+#de = Ein bipartiter Graph G = (V<sub>1</sub> &cup; V<sub>2</sub>, E), wobei V<sub>1</sub> die Partition mit weniger oder gleichvielen Elementen ist und ein Matching M (ggf. M = &Oslash;).
+
+$ALGO_PROBLEMAFFILIATION
+#en = Matching problem
+#de = Matchingprobleme
+
+$ALGO_SUBJECT
+#en = Logistics
+#de = Logistik
+
+$ALGO_INSTRUCTIONS
+#en = <b>Creating problem entities</b>:<br>Create your own graph and make sure that the graph complies with the assumptions of the algorithm. You can use<br>the toolbar extensions to check whether the created graph is bipartite or complete bipartite, to create a complete bipartite graph<br>by indicating the number of vertices in the particular subsets or you can arrange the vertices of your created graph in a predefined layout.<br><br><b>Starting the algorithm</b>:<br>Before you start the algorithm you can indicate a matching the algorithm should begin with by selecting the edges in the graph.<br>If you don't select anything the algorithm starts with M = &Oslash;.<br><br><b>Exercise Mode</b>:<br>Activate the exercise mode to practice the algorithm in an interactive way. After you have started the algorithm<br>exercises are presented that you have to solve.<br>If an exercise can be solved directly in a view of the algorithm the corresponding view is highlighted with a border, there you can<br>enter your solution and afterwards you have to press the button to solve the exercise. Otherwise (if an exercise is not related to a specific<br>view) you can directly press the button to solve the exercise which opens a dialog where you can enter your solution of the exercise.
+#de = <b>Probleminstanzen erstellen</b>:<br>Erstellen Sie einen Graphen und achten Sie darauf, dass dieser die Voraussetzungen des Algorithmus erfüllt.<br>Über die Toolbar-Erweiterungen können Sie überprüfen, ob der erstellte Graph bipartit oder vollständig bipartit ist, einen vollständig<br>bipartiten Graphen erstellen, indem Sie die Anzahl Knoten der jeweiligen Teilmengen angeben oder die Knoten eines erstellten Graphen in einem<br>vordefinierten Layout ausrichten.<br><br><b>Algorithmus starten</b>:<br>Bevor Sie den Algorithmus starten, können Sie ein Matching angeben mit dem der Algorithmus beginnen soll.<br>Wählen Sie dafür die Kanten des Matchings im Graphen aus oder nichts, um mit M = &Oslash; zu starten.<br><br><b>Übungsmodus</b>:<br>Aktivieren Sie den Übungsmodus, um den Algorithmus interaktiv zu erlernen. Nachdem Sie den Algorithmus gestartet haben, werden Ihnen<br>Übungsaufgaben gestellt, die Sie lösen müssen.<br>Wenn eine Aufgabe direkt in einer Ansicht des Algorithmus gelöst werden kann, wird die dazugehörige Ansicht mit einer Umrandung hervorgehoben,<br>in der Sie dann die Lösung eingeben können. Danach betätigen Sie den Button zum Lösen der Aufgabe. Ist ein Aufgabe nicht auf eine Ansicht<br>bezogen, können Sie direkt den Button zum Lösen der Aufgabe betätigen. Danach öffnet sich ein Dialog, in dem Sie die Lösung der Aufgabe<br>eingeben können.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the algorithm text
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGOTEXT_PARAGRAPH_INITIALIZATION
+#en = 1. Initialization:
+#de = 1. Initialisierung:
+
+$ALGOTEXT_PARAGRAPH_STOPCRITERION
+#en = 2. Stop criterion:
+#de = 2. Stoppkriterium:
+
+$ALGOTEXT_PARAGRAPH_AUGMENTINGPATH
+#en = 3. Augmenting Path:
+#de = 3. Augmenting Path:
+
+$ALGOTEXT_PARAGRAPH_IMPROVEMENT
+#en = 4. Improvement:
+#de = 4. Verbesserung:
+
+$ALGOTEXT_STEP1_INIT
+#en = Let _latex{$S \subseteq V_1$} be the set of vertices from _latex{$V_1$} that are not endpoint of a matching edge.%n%n
+#de = _latex{$S \subseteq V_1$} sei die Menge der Knoten aus _latex{$V_1$}, die nicht Endpunkt einer Matchingkante sind.%n%n
+
+$ALGOTEXT_STEP2_STOP
+#en = If _latex{$S = \emptyset$} then _latex{$M$} is maximal. Stop.%n%n
+#de = Falls _latex{$S = \emptyset$}, so ist _latex{$M$} maximal. Stopp.%n%n
+
+$ALGOTEXT_STEP3_CHOOSEVERTEX
+#en = Choose a vertex _latex{$v_s \in S$}.%n
+#de = Wähle einen Knoten _latex{$v_s \in S$}.%n
+
+$ALGOTEXT_STEP4_FINDAUGMENTINGPATH
+#en = Starting from _latex{$v_s$} find any path that is eligible as an augmenting path.%n
+#de = Suche ausgehend von _latex{$v_s$} alle Wege ab, die als Augmenting Path in Frage kommen.%n
+
+$ALGOTEXT_STEP5_NOAUGMENTINGPATH
+#en = If no such augmenting path can be found then put _latex{$S = S \setminus \{v_s\}$} and go to 2. 
+#de = Wird kein Augmenting Path gefunden, setze _latex{$S = S \setminus \{v_s\}$} und gehe zu 2. 
+
+$ALGOTEXT_STEP6_AUGMENTINGPATH
+#en = Otherwise choose an arbitrary augmenting path (from the just determined) and go to step 4.%n%n
+#de = Sonst wähle einen beliebigen Augmenting Path (aus den soeben bestimmten) aus und gehe zu Schritt 4.%n%n
+
+$ALGOTEXT_STEP7_IMPROVE1
+#en = Enlarge the matching with the found augmenting path.%n
+#de = Vergrößere mit dem gefundenen Augmenting Path das Matching.%n
+
+$ALGOTEXT_STEP8_IMPROVE2
+#en = Set _latex{$S = S \setminus \{v_s\}$} and go to step 2.
+#de = Setze _latex{$S = S \setminus \{v_s\}$} und gehe zu Schritt 2.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the exercises of the algorithm steps
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$EXERCISE_STEP1_5_8
+#en = What is <i>S</i>?
+#de = Wie lautet <i>S</i>?
+
+$EXERCISE_STEP2
+#en = Will the algorithm stop?
+#de = Wird der Algorithmus gestoppt?
+
+$EXERCISE_STEP3
+#en = Select v<sub>s</sub>.
+#de = Wählen Sie v<sub>s</sub>.
+
+$EXERCISE_STEP4
+#en = Find an augmenting path if possible and select the related vertices in the graph (<i>if their is no augmenting path then do not choose anything</i>).
+#de = Suchen Sie, wenn möglich, einen Augmenting Path und wählen Sie die zugehörigen Knoten im Graphen aus (<i>gibt es keinen Augmenting Path, dann wählen Sie nichts aus</i>).
+
+$EXERCISE_STEP7
+#en = What is <i>M</i> after this step (<i>select all matched edges in the graph</i>)?
+#de = Wie lautet <i>M</i> nach diesem Schritt (<i>wählen Sie alle Matchingkanten im Graphen aus</i>)?
+
+$EXERCISE_HINT_SETINPUT
+#en = Use a comma as the delimiter!
+#de = Nutzen Sie ein Komma als Trennzeichen!
+
+$EXERCISE_STEP2_YES
+#en = Yes
+#de = Ja
+
+$EXERCISE_STEP2_NO
+#en = No
+#de = Nein
+
+$EXERCISE_STEP4_INPUTHINT
+#en = <b>Select an augmenting path</b>:<br>Select the vertices of the augmenting path in the graph one after another by using the mouse, while pressing the <b>Ctrl</b>-key<br>on your keyboard.<br>Make sure that a correct path develops. Afterwards click on the "Solve Exercise"-button of the task.
+#de = <b>Einen Augmenting Path wählen</b>:<br>Wählen Sie die Knoten des Augmenting Path nacheinander mit der Maus im Graphen aus, während Sie die <b>Strg</b>-Taste auf<br>Ihrer Tastatur gedrückt halten.<br>Achten Sie darauf, dass ein korrekter Weg entsteht. Klicken Sie anschließend auf den "Aufgabe lösen"-Button der Aufgabe.
+
+$EXERCISE_STEP4_MSG_ERR_NOPATH
+#en = The specified vertices do not describe a valid path in the graph!%nChoose the vertices one after another so that a valid path develops.
+#de = Die von Ihnen angegeben Knoten beschreiben keinen gültigen Weg im Graphen!%nWählen Sie die Knoten nacheinander aus, sodass ein gültiger Weg entsteht.
+
+$EXERCISE_STEP4_MSG_ERR_NOPATH_TITLE
+#en = Invalid path
+#de = Ungültiger Weg
+
+$EXERCISE_STEP7_INPUTHINT
+#en = <b>Select matched edges</b>:<br>Select the matched edges in the graph by using the mouse and pressing the <b>Ctrl</b>-key on your keyboard.<br>Afterwards click on the "Solve Exercise"-button of the task.
+#de = <b>Matchingkanten auswählen</b>:<br>Wählen Sie die Matchingkanten im Graphen aus, indem Sie die Maus benutzen und die <b>Strg</b>-Taste auf Ihrer Tastatur gedrückt halten.<br>Klicken Sie anschließend auf den "Aufgabe lösen"-Button der Aufgabe.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the views of the plugin
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$VIEW_GRAPH_TITLE
+#en = Graph
+#de = Graph
+
+$VIEW_ALGOTEXT_TITLE
+#en = Algorithm
+#de = Algorithmus
+
+$VIEW_SET_TITLE
+#en = Set S
+#de = Mengen S
+
+$VIEW_MATCHING_TITLE
+#en = Matching M
+#de = Matching M
+
+$VIEW_LEGEND_TITLE
+#en = Legend
+#de = Legende
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the legend descriptions
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$LEGEND_GRAPH_SETS
+#en = The vertices of set S that are free meaning no endpoints of a matched edge
+#de = Knoten der Menge S, die nicht gesättigt, also keine Endpunkte einer Matchingkante sind
+
+$LEGEND_GRAPH_CURRVERTEX
+#en = The current vertex v<sub>s</sub>
+#de = Der aktuell ausgewählte Knoten v<sub>s</sub>
+
+$LEGEND_GRAPH_MATCHEDEDGES
+#en = The matched edges of matching M
+#de = Die Matchingkanten des Matchings M
+
+$LEGEND_GRAPH_MATCHINGENLARGEMENT
+#en = The unmatched edges of the augmenting path which enlarge the matching M
+#de = Nicht-Matchingkanten des Augmenting Path, die das Matching M vergrößern
+
+$LEGEND_GRAPH_AUGMENTINGPATH
+#en = A found path that is qualified for an augmenting path
+#de = Ein gefundener Weg, der als Augmenting Path in Frage kommt
+
+$LEGEND_SET_MODIFICATION
+#en = The set S becomes modified
+#de = Die Menge S wird verändert
+
+$LEGEND_MATCHING_MODIFICATION
+#en = The matching M becomes modified
+#de = Das Matching M wird verändert
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// creator properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// customization properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTFOREGROUND
+#en = Foreground color of the current step in the algorithm
+#de = Vordergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTBACKGROUND
+#en = Background color of the current step in the algorithm
+#de = Hintergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_SETS
+#en = Background color of the vertices of set S
+#de = Hintergrundfarbe der Knoten aus Menge S
+
+$CUSTOMIZE_COLOR_CURRVERTEX
+#en = Background color of the vertex v<sub>s</sub>
+#de = Hintergrundfarbe des Knotens v<sub>s</sub>
+
+$CUSTOMIZE_COLOR_MATCHEDEDGES
+#en = Color of the matching edges
+#de = Farbe der Matchingkanten
+
+$CUSTOMIZE_COLOR_AUGMENTINGPATH
+#en = Color of the augmenting path
+#de = Farbe des Augmenting Path
+
+$CUSTOMIZE_COLOR_MODIFICATIONS
+#en = Color of modifications to objects
+#de = Farbe von Veränderungen an Objekten
+
+$CUSTOMIE_LINEWIDTH_CURRVERTEX
+#en = Line width of the vertex v<sub>s</sub>
+#de = Linienstärke Knotens v<sub>s</sub>
+
+$CUSTOMIE_LINEWIDTH_MATCHEDEDGES
+#en = Line width of the matching edges
+#de = Linienstärke der Matchingkanten
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// messages
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$MSG_ERROR_SAVEFILE
+#en = File could not be saved!
+#de = Datei konnte nicht gespeichert werden!
+
+$MSG_ERROR_SAVEFILE_TITLE
+#en = Save File
+#de = Datei speichern
+
+$MSG_ERROR_OPENFILE
+#en = File could not be opened!
+#de = Datei konnte nicht geöffnet werden!
+
+$MSG_ERROR_OPENFILE_TITLE
+#en = Open File
+#de = Datei öffnen
+
+$MSG_INFO_NOTBIPARTITE
+#en = The created graph is not bipartite!%nThe Hungarian method can only be applied to bipartite graphs.
+#de = Der erstellte Graph ist nicht bipartit!%nDie Ungarische Methode kann nur auf bipartite Graphen angewendet werden.
+
+$MSG_INFO_NOTBIPARTITE_TITLE
+#en = No bipartite graph
+#de = Kein bipartiter Graph
+
+$MSG_INFO_INVALIDMATCHING
+#en = The selected edges do not result in a valid matching!%nDeselect the edges to start with a zero matching.
+#de = Die ausgewählten Kanten ergeben kein gültiges Matching!%nSie können auch mit einem Null-Matching starten. Heben Sie dazu die Auswahl auf.
+
+$MSG_INFO_INVALIDMATCHING_TITLE
+#en = Invalid matching
+#de = Ungültiges Matching

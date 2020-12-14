@@ -1,0 +1,341 @@
+﻿// Language file of the nearest neighbor algorithm plugin
+
+$LANGUAGES
+#en = English
+#de = Deutsch
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// general properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGO_NAME
+#en = 2-opt
+#de = 2-opt
+
+$ALGO_DESC
+#en = An improvement algorithm to find a Hamiltonian cycle that contains each vertex of a graph exactly once.
+#de = Ein Verbesserungsverfahren, um in einem Graphen eine Rundreise zu finden, die jeden Knoten genau einmal enthält.
+
+$ALGO_TYPE
+#en = Heuristic
+#de = Heuristik
+
+$ALGO_ASSUMPTIONS
+#en = A non-negative weighted, undirected graph K<sub>n</sub> with n > 3 and a Hamiltonian cycle r.
+#de = Ein nicht negativ gewichteter, ungerichteter Graph K<sub>n</sub> mit n > 3 und eine Rundreise r.
+
+$ALGO_PROBLEMAFFILIATION
+#en = Traveling salesman problem
+#de = Traveling Salesman Probleme
+
+$ALGO_SUBJECT
+#en = Logistics
+#de = Logistik
+
+$ALGO_INSTRUCTIONS
+#en = <b>Creating problem entities</b>:<br>Create your own graph and make sure that the graph complies with the assumptions of the algorithm. You can use<br>the toolbar extensions to check whether the created graph is complete, to create a complete graph by indicating the number of vertices, to<br>create a graph by use of an adjacency matrix or you can arrange the vertices of your created graph in a circle.<br><br><b>Starting the algorithm</b>:<br>Before you start the algorithm select a Hamiltonian cycle <i>r</i> the algorithm should begin with. Create the starting Hamiltonian cycle<br>by selecting the vertices one after another so that a valid cycle develops (that is, the cycle is created using the selection order of the<br>vertices). It is also possible that you start the algorithm without selecting any vertices and after that you open the input dialog in the<br>information message to enter a Hamiltonian cycle with the keyboard.<br><br><b>Exercise Mode</b>:<br>Activate the exercise mode to practice the algorithm in an interactive way. After you have started the algorithm<br>exercises are presented that you have to solve.<br>If an exercise can be solved directly in a view of the algorithm the corresponding view is highlighted with a border, there you can<br>enter your solution and afterwards you have to press the button to solve the exercise. Otherwise (if an exercise is not related to a specific<br>view) you can directly press the button to solve the exercise which opens a dialog where you can enter your solution of the exercise.
+#de = <b>Probleminstanzen erstellen</b>:<br>Erstellen Sie einen Graphen und achten Sie darauf, dass dieser die Voraussetzungen des Algorithmus erfüllt.<br>Über die Toolbar-Erweiterungen können Sie überprüfen, ob der erstellte Graph vollständig ist, einen vollständigen Graphen erstellen, indem<br>Sie die Anzahl Knoten angeben, einen Graphen mittels einer Adjazenzmatrix erstellen oder die Knoten eines erstellten Graphen in einem Kreis<br>anordnen.<br><br><b>Algorithmus starten</b>:<br>Bevor der Algorithmus gestartet werden kann, müssen Sie eine Rundreise <i>r</i> auswählen, mit dem der Algorithmus beginnen soll.<br>Erstellen Sie die Start-Rundreise, indem Sie die Knoten in korrekter Reihenfolge auswählen, sodass ein gültiger Kreis entsteht (d.h. der<br>Kreis wird über die Auswahlreihenfolge der Knoten erzeugt). Es ist auch möglich den Algorithmus zu starten, ohne die Knoten im Graphen<br>auszuwählen und danach den Eingabe-Dialog in der Informationsanzeige zu verwenden, um die Rundreise per Tastatur einzugeben.<br><br><b>Übungsmodus</b>:<br>Aktivieren Sie den Übungsmodus, um den Algorithmus interaktiv zu erlernen. Nachdem Sie den Algorithmus gestartet haben, werden Ihnen<br>Übungsaufgaben gestellt, die Sie lösen müssen.<br>Wenn eine Aufgabe direkt in einer Ansicht des Algorithmus gelöst werden kann, wird die dazugehörige Ansicht mit einer Umrandung hervorgehoben,<br>in der Sie dann die Lösung eingeben können. Danach betätigen Sie den Button zum Lösen der Aufgabe. Ist ein Aufgabe nicht auf eine Ansicht<br>bezogen, können Sie direkt den Button zum Lösen der Aufgabe betätigen. Danach öffnet sich ein Dialog, in dem Sie die Lösung der Aufgabe<br>eingeben können.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the algorithm text
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGOTEXT_PARAGRAPH_ITERATION
+#en = 1. Iteration:
+#de = 1. Iteration:
+
+$ALGOTEXT_PARAGRAPH_VARIATION
+#en = 2. Variation:
+#de = 2. Variation:
+
+$ALGOTEXT_PARAGRAPH_STOPCRITERION
+#en = 3. Stop criterion:
+#de = 3. Stoppkriterium:
+
+$ALGOTEXT_STEP1_IT
+#en = Choose two edges _latex{$(v_i,v_j)$}, _latex{$(v'_i,v'_j)$} from _latex{$r$}, which have no common endpoint.%nExecute step 2 for all possible combinations of such edge-pairs.%n%n
+#de = Wähle zwei Kanten _latex{$(v_i,v_j)$}, _latex{$(v'_i,v'_j)$} aus _latex{$r$} aus, die keinen gemeinsamen Endpunkt haben.%nFühre Schritt 2 für alle möglichen Kombinationen solcher Kantenpaare aus.%n%n
+
+$ALGOTEXT_STEP2_VARIATION
+#en = Determine the length of the Hamiltonian cycle _latex{$r'$}, where compared to _latex{$r$} edges _latex{$(v_i,v_j)$} and _latex{$(v'_i,v'_j)$} are substituted by edges _latex{$(v_i,v'_i)$}, _latex{$(v_j,v'_j)$} and the path from _latex{$v_j$} to _latex{$v'_i$} will be traversed in reverse direction.%n%n
+#de = Bestimme die Länge der Rundreise _latex{$r'$}, bei der im Vergleich zu _latex{$r$} die Kanten _latex{$(v_i,v_j)$} und _latex{$(v'_i,v'_j)$} durch die Kanten _latex{$(v_i,v'_i)$}, _latex{$(v_j,v'_j)$} ersetzt werden und die Strecke von _latex{$v_j$} nach _latex{$v'_i$} in umgekehrter Richtung durchlaufen wird.%n%n
+
+$ALGOTEXT_STEP3_STOP
+#en = If the shortest Hamiltonian cycle _latex{$r'$} found in step 2 is shorter than _latex{$r$} 
+#de = Ist die kürzeste in Schritt 2 gefundene Rundreise _latex{$r'$} kürzer als _latex{$r$}, 
+
+$ALGOTEXT_STEP4_STOP
+#en = then set _latex{$r = r'$} and go to step 1. 
+#de = so setze _latex{$r = r'$} und gehe zu Schritt 1. 
+
+$ALGOTEXT_STEP5_STOP
+#en = Otherwise stop.
+#de = Andernfalls stopp.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the exercises of the algorithm steps
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$EXERCISE_STEP1
+#en = Specify all possible combinations of edge-pairs and their substitutions in the table (<i>use the buttons in the header bar of the combinations view to add or remove items and regard that the input pattern has to be "(...,...) (...,...)", where the ellipsis have to be replaced with the corresponding vertex captions</i>).
+#de = Geben Sie alle möglichen Kombinationen an Kantenpaaren und deren Ersetzungen in der Tabelle ein (<i>nutzen Sie die Buttons in der Kopfleiste der Kombinations-Ansicht, um Items hinzuzufügen oder zu löschen und achten Sie darauf, dass die Eingabe im Muster "(...,...) (...,...)" erfolgt, wobei die Auslassungspunkte durch die entsprechenden Knoten-Bezeichnungen ersetzt werden müssen</i>).
+
+$EXERCISE_STEP2
+#en = What are the savings and the consequent lengths of <i>r'</i> for the particular edge-pairs?
+#de = Wie lauten die Ersparnisse und die daraus resultierende Länge von <i>r'</i> für die einzelnen Kantenpaare?
+
+$EXERCISE_STEP3
+#en = Is their a shorter Hamiltonian cycle than <i>r</i>?
+#de = Gibt es eine kürzere Rundreise als <i>r</i>?
+
+$EXERCISE_STEP4
+#en = What is the new Hamiltonian cycle <i>r</i>?
+#de = Wie lautet die neue Rundreise <i>r</i>?
+
+$EXERCISE_STEP1_BTN_ADD_TOOLTIP
+#en = Add new item
+#de = Neues Item hinzufügen
+
+$EXERCISE_STEP1_BTN_REMOVE_TOOLTIP
+#en = Remove last added item
+#de = Zuletzt hinzugefügtes Item entfernen
+
+$EXERCISE_STEP3_YES
+#en = Yes
+#de = Ja
+
+$EXERCISE_STEP3_NO
+#en = No
+#de = Nein
+
+$EXERCISE_HINT_CYCLEINPUT
+#en = Use a comma as the delimiter!<br>Enter the starting Hamiltonian cycle in the following form:<br>v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>1</sub>
+#de = Nutzen Sie ein Komma als Trennzeichen!<br>Geben Sie die Start-Rundreise in folgender Form an:<br>v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>1</sub>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the views of the plugin
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$VIEW_GRAPH_TITLE
+#en = Graph
+#de = Graph
+
+$VIEW_ALGOTEXT_TITLE
+#en = Algorithm
+#de = Algorithmus
+
+$VIEW_CYCLE_TITLE
+#en = Hamiltonian Cycle r
+#de = Rundreise r
+
+$VIEW_CYCLE_LENGTH
+#en = Length:
+#de = Länge:
+
+$VIEW_COMBI_TITLE
+#en = Combinations
+#de = Kombinationen
+
+$VIEW_COMBI_COLUMN_OUT
+#en = Out (v<sub>i</sub>,v<sub>j</sub>) (v'<sub>i</sub>,v'<sub>j</sub>)
+#de = Raus (v<sub>i</sub>,v<sub>j</sub>) (v'<sub>i</sub>,v'<sub>j</sub>)
+
+$VIEW_COMBI_COLUMN_IN
+#en = In (v<sub>i</sub>,v'<sub>i</sub>) (v<sub>j</sub>,v'<sub>j</sub>)
+#de = Rein (v<sub>i</sub>,v'<sub>i</sub>) (v<sub>j</sub>,v'<sub>j</sub>)
+
+$VIEW_COMBI_COLUMN_SAVINGS
+#en = Savings
+#de = Ersparnis
+
+$VIEW_COMBI_COLUMN_LENGTH
+#en = Length r'
+#de = Länge r'
+
+$VIEW_LEGEND_TITLE
+#en = Legend
+#de = Legende
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the legend descriptions
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$LEGEND_GRAPH_CYCLER
+#en = The Hamiltonian cycle r
+#de = Die Rundreise r
+
+$LEGEND_GRAPH_CURREDGEPAIR
+#en = The current edge-pair (v<sub>i</sub>,v<sub>j</sub>) (v'<sub>i</sub>,v'<sub>j</sub>)
+#de = Das aktuelle Kantenpaar (v<sub>i</sub>,v<sub>j</sub>) (v'<sub>i</sub>,v'<sub>j</sub>)
+
+$LEGEND_GRAPH_NEWEDGEPAIRCOMBI
+#en = A new combination of an edge-pair
+#de = Eine neue Kantenpaar-Kombination
+
+$LEGEND_GRAPH_EXISTINGEDGEPAIRCOMBI
+#en = An existing combination of an edge-pair
+#de = Eine bereits existierende Kantenpaar-Kombination
+
+$LEGEND_COMBI_CURREDGEPAIR
+#en = The current edge-pair that is inspected
+#de = Das aktuelle Kantenpaar, das betrachtet wird
+
+$LEGEND_COMBI_NEWEDGEPAIRCOMBI
+#en = The new edge-pair combination
+#de = Die neue Kantenpaar-Kombination
+
+$LEGEND_COMBI_EXISTINGEDGEPAIRCOMBI
+#en = The existing edge-pair combination
+#de = Die bereits existierende Kantenpaar-Kombination
+
+$LEGEND_COMBI_MAXSAVINGS
+#en = The edge-pair combination with a largest savings and thereby a shorter Hamiltonian cycle
+#de = Die Kantenpaarung mit einer größten Ersparnis und damit einer kürzeren Rundreise
+
+$LEGEND_CYCLE_MODIFICATION
+#en = The Hamiltonian cycle r becomes modified
+#de = Die Rundreise r wird verändert
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// creator properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CREATORPREFS_DIRECTED
+#en = directed
+#de = gerichtet
+
+$CREATORPREFS_DIRECTED_DESC
+#en = Apply algorithm to a directed graph
+#de = Verfahren auf gerichteten Graphen anwenden
+
+$CREATORPREFS_UNDIRECTED
+#en = undirected
+#de = ungerichtet
+
+$CREATORPREFS_UNDIRECTED_DESC
+#en = Apply algorithm to an undirected graph
+#de = Verfahren auf ungerichteten Graphen anwenden
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// customization properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTFOREGROUND
+#en = Foreground color of the current step in the algorithm
+#de = Vordergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTBACKGROUND
+#en = Background color of the current step in the algorithm
+#de = Hintergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_CYCLER
+#en = Color of the Hamiltonian cycle r
+#de = Farbe der Rundreise r
+
+$CUSTOMIZE_COLOR_CURREDGEPAIR
+#en = Color of the current edge-pair (v<sub>i</sub>,v<sub>j</sub>) (v'<sub>i</sub>,v'<sub>j</sub>)
+#de = Farbe des aktuellen Kantenpaares (v<sub>i</sub>,v<sub>j</sub>) (v'<sub>i</sub>,v'<sub>j</sub>)
+
+$CUSTOMIZE_COLOR_NEWEDGEPAIRCOMBI
+#en = Color of a new combination of an edge-pair
+#de = Farbe einer neuen Kantenpaar-Kombination
+
+$CUSTOMIZE_COLOR_EXISTINGEDGEPAIRCOMBI
+#en = Color of an existing combination of an edge-pair
+#de = Farbe einer bereits existierenden Kantenpaar-Kombination
+
+$CUSTOMIZE_COLOR_MAXSAVINGS
+#en = Background color of an item in the combinations table with a largest savings
+#de = Hintergrundfarbe eines Items in der Kombinations-Tabelle mit einer größten Einsparung
+
+$CUSTOMIZE_COLOR_MODIFICATIONS
+#en = Color of modifications to objects
+#de = Farbe von Veränderungen an Objekten
+
+$CUSTOMIZE_LINEWIDTH_CYCLER
+#en = Line with of the Hamiltonian cycle r
+#de = Linienstärke der Rundreise r
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// messages
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$MSG_ERROR_SAVEFILE
+#en = File could not be saved!
+#de = Datei konnte nicht gespeichert werden!
+
+$MSG_ERROR_SAVEFILE_TITLE
+#en = Save File
+#de = Datei speichern
+
+$MSG_ERROR_OPENFILE
+#en = File could not be opened!
+#de = Datei konnte nicht geöffnet werden!
+
+$MSG_ERROR_OPENFILE_TITLE
+#en = Open File
+#de = Datei öffnen
+
+$MSG_INFO_NEGATIVEWEIGHTS
+#en = The created graph contains edges with a negative weight!%nThe 2-opt algorithm can only be applied to non-negative weighted graphs.
+#de = Der erstellte Graph enthält Kanten mit negativen Gewichten!%nDas 2-opt Verfahren kann nur auf nicht negativ gewichtete Graphen angewendet werden.
+
+$MSG_INFO_NEGATIVEWEIGHTS_TITLE
+#en = Negative edge weights
+#de = Negative Kanten-Gewichte
+
+$MSG_INFO_NOTCOMPLETE
+#en = The created graph is not complete!%nThe 2-opt algorithm can only be applied to complete graphs.
+#de = Der erstellte Graph ist nicht vollständig!%nDas 2-opt Verfahren kann nur auf vollständige Graphen angewendet werden.
+
+$MSG_INFO_NOTCOMPLETE_TITLE
+#en = No complete graph
+#de = Kein vollständiger Graph
+
+$MSG_INFO_INSUFFICIENTVERTEXCOUNT
+#en = The created graph does not complies with the assumptions!%nThe vertex count is insufficient.
+#de = Der erstellte Graph entspricht nicht den Voraussetzungen!%nDie Anzahl Knoten ist zu gering.
+
+$MSG_INFO_INSUFFICIENTVERTEXCOUNT_TITLE
+#en = Invalid graph
+#de = Ungültiger Graph
+
+$MSG_INFO_SELECTSTARTCYCLE
+#en = Please select a valid starting Hamiltonian cycle!%nCreate the Hamiltonian cycle by selecting the vertices in the graph one after another so that a valid cycle develops%n(that is, the cycle is created using the selection order of the vertices).%n%nRemember that a Hamiltonian cycle contains all vertices of a graph!
+#de = Bitte wählen Sie eine gültige Start-Rundreise!%nErstellen Sie die Rundreise, indem Sie die Knoten in korrekter Reihenfolge auswählen, sodass ein gültiger Kreis entsteht%n(d.h. der Kreis wird über die Auswahlreihenfolge der Knoten erzeugt).%n%nBedenken Sie, eine Rundreise enthält alle Knoten eines Graphen!
+
+$MSG_INFO_SELECTSTARTCYCLE_TITLE
+#en = Select Hamiltonian cycle
+#de = Rundreise auswählen
+
+$MSG_INFO_SELECTSTARTCYCLE_CREATE
+#en = Input...
+#de = Eingabe...
+
+$MSG_INFO_INVALIDCYCLEINPUT
+#en = Your input is incorrect!%nPlease enter the Hamiltonian cycle in the specified form and only use vertex captions that are existing.
+#de = Ihre Eingabe ist inkorrekt!%nGeben Sie die Rundreise in der angegebenen Form ein und verwenden Sie nur vorhandene Knoten-Beschriftungen.
+
+$MSG_INFO_INVALIDCYCLEINPUT_TITLE
+#en = Invalid input
+#de = Ungültige Eingabe
+
+$MSG_INFO_INVALIDEDGEPAIRINPUT
+#en = Your input is incorrect!%nPlease enter an edge-pair in the following pattern: (...,...) (...,...), where the ellipsis have to be%nreplaced with the corresponding vertex captions and ensure that specified vertices are existing.
+#de = Ihre Eingabe ist inkorrekt!%nGeben Sie ein Kantenpaar bitte in folgendem Muster an: (...,...) (...,...), wobei die Auslassungspunkte%ndurch die entsprechenden Knoten-Bezeichnungen ersetzt werden müssen und stellen Sie sicher, dass die angegebenen%nKnoten auch existieren.
+
+$MSG_INFO_INVALIDEDGEPAIRINPUT_TITLE
+#en = Invalid input
+#de = Ungültige Eingabe
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// dialogs
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CYCLEINPUTDLG_TITLE
+#en = Enter starting Hamiltonian Cycle
+#de = Eingabe Start-Rundreise
+
+$CYCLEINPUTDLG_DESC
+#en = Use a comma as the delimiter!<br>Enter the starting Hamiltonian cycle in the following form:<br>v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>1</sub>
+#de = Nutzen Sie ein Komma als Trennzeichen!<br>Geben Sie die Start-Rundreise in folgender Form an:<br>v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>1</sub>

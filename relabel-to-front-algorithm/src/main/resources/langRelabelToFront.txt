@@ -1,0 +1,318 @@
+﻿// Language file of the ford-fulkerson algorithm plugin
+
+$LANGUAGES
+#en = English
+#de = Deutsch
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// general properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGO_NAME
+#en = Relabel-to-front
+#de = Relabel-to-front
+
+$ALGO_DESC
+#en = Finds a flow of maximum strength in a network.
+#de = Findet einen Fluss mit maximaler Stärke in einem Netzwerk.
+
+$ALGO_TYPE
+#en = Exact algorithm
+#de = Exaktes Verfahren
+
+$ALGO_ASSUMPTIONS
+#en = A network (G, u, s, t).
+#de = Ein Netzwerk (G, u, s, t).
+
+$ALGO_PROBLEMAFFILIATION
+#en = Flow problem
+#de = Flussprobleme
+
+$ALGO_SUBJECT
+#en = Logistics
+#de = Logistik
+
+$ALGO_INSTRUCTIONS
+#en = <b>Creating problem entities</b>:<br>Create your own network and make sure that the network complies with the assumptions of the algorithm.<br><br><b>Exercise Mode</b>:<br>Activate the exercise mode to practice the algorithm in an interactive way. After you have started the algorithm<br>exercises are presented that you have to solve.<br>If an exercise can be solved directly in a view of the algorithm the corresponding view is highlighted with a border, there you can<br>enter your solution and afterwards you have to press the button to solve the exercise. Otherwise (if an exercise is not related to a specific<br>view) you can directly press the button to solve the exercise which opens a dialog where you can enter your solution of the exercise.
+#de = <b>Probleminstanzen erstellen</b>:<br>Erstellen Sie ein Netzwerk und achten Sie darauf, dass dieses die Voraussetzungen des Algorithmus erfüllt.<br><br><b>Übungsmodus</b>:<br>Aktivieren Sie den Übungsmodus, um den Algorithmus interaktiv zu erlernen. Nachdem Sie den Algorithmus gestartet haben, werden Ihnen<br>Übungsaufgaben gestellt, die Sie lösen müssen.<br>Wenn eine Aufgabe direkt in einer Ansicht des Algorithmus gelöst werden kann, wird die dazugehörige Ansicht mit einer Umrandung hervorgehoben,<br>in der Sie dann die Lösung eingeben können. Danach betätigen Sie den Button zum Lösen der Aufgabe. Ist ein Aufgabe nicht auf eine Ansicht<br>bezogen, können Sie direkt den Button zum Lösen der Aufgabe betätigen. Danach öffnet sich ein Dialog, in dem Sie die Lösung der Aufgabe<br>eingeben können.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the algorithm text
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGOTEXT_PARAGRAPH_INITIALIZATION
+#en = 1. Initialization:
+#de = 1. Initialisierung:
+
+$ALGOTEXT_PARAGRAPH_STOPCRITERION
+#en = 2. Stop criterion:
+#de = 2. Stoppkriterium:
+
+$ALGOTEXT_PARAGRAPH_DRAINAGE
+#en = 3. Drainage:
+#de = 3. Abfluss:
+
+$ALGOTEXT_PARAGRAPH_RELABEL
+#en = 4. Relabel:
+#de = 4. Relabel:
+
+$ALGOTEXT_STEP1_INIT
+#en = Let _latex{$f$} be a preflow with _latex{$f(s,v) := u(s,v)$} if _latex{$(s,v) \in E$} and _latex{$f(e) := 0$} otherwise.%n
+#de = Sei _latex{$f$} ein Präfluss mit _latex{$f(s,v) := u(s,v)$} falls _latex{$(s,v) \in E$} und _latex{$f(e) := 0$} sonst.%n
+
+$ALGOTEXT_STEP2_INIT
+#en = Set _latex{$height(s) = n$} (_latex{$n = |V|$}) and _latex{$height(v) = 0$} for all _latex{$v \in V \setminus \{s\}$}.%n%n
+#de = Setze _latex{$height(s) = n$} (_latex{$n = |V|$}) und _latex{$height(v) = 0$} für alle _latex{$v \in V \setminus \{s\}$}.%n%n
+
+$ALGOTEXT_STEP3_STOP
+#en = Determine the excess for each node except _latex{$s$} and _latex{$t$}.%n
+#de = Bestimme das Übermaß jedes Knotens mit Ausnahme von _latex{$s$} und _latex{$t$}.%n
+
+$ALGOTEXT_STEP4_STOP
+#en = If _latex{$excess(v) = 0$} for all _latex{$v \in V \setminus \{s,t\}$}, then stop.%n
+#de = Falls _latex{$excess(v) = 0$} für alle _latex{$v \in V \setminus \{s,t\}$}, dann stopp.%n
+
+$ALGOTEXT_STEP5_STOP
+#en = Otherwise choose the node _latex{$v$} with _latex{$excess(v) > 0$}, where the height _latex{$height(v)$} was changed last.%n%n
+#de = Ansonsten wähle denjenigen Knoten _latex{$v$} mit _latex{$excess(v) > 0$} aus, bei dem sich die Höhe _latex{$height(v)$} zuletzt verändert hat.%n%n
+
+$ALGOTEXT_STEP6_DRAINAGE
+#en = Let the excess of _latex{$v$} drain by implementing the following steps for all neighbors _latex{$u \in V$} of _latex{$v$}:%n
+#de = Lasse den Überfluss von _latex{$v$} ablaufen, indem für jeden Knoten _latex{$u \in V$}, der Nachbar von _latex{$v$} ist, folgendes ausgeführt wird:%n
+
+$ALGOTEXT_STEP7_DRAINAGE
+#en = If both conditions _latex{$u'(v,u) > 0$} and _latex{$height(v) > height(u)$} are fulfilled, 
+#de = Wenn die beiden Bedingungen _latex{$u'(v,u) > 0$} und _latex{$height(v) > height(u)$} erfüllt sind, 
+
+$ALGOTEXT_STEP8_DRAINAGE
+#en = then set _latex{$f(v,u) = f(v,u) \; + \; min\{excess(v), \; u'(v,u)\}$}. 
+#de = dann setze _latex{$f(v,u) = f(v,u) \; + \; min\{excess(v), \; u'(v,u)\}$}. 
+
+$ALGOTEXT_STEP9_DRAINAGE
+#en = Determine the new _latex{$excess(v)$}.%n%n
+#de = Bestimme den neuen _latex{$excess(v)$}.%n%n
+
+$ALGOTEXT_STEP10_RELABEL
+#en = If _latex{$excess(v) = 0$} 
+#de = Falls _latex{$excess(v) = 0$}, 
+
+$ALGOTEXT_STEP11_RELABEL
+#en = then go to step 2.%n
+#de = dann gehe zu Schritt 2.%n
+
+$ALGOTEXT_STEP12_RELABEL
+#en = Otherwise set _latex{$height(v) = height(v) + 1$} and go to step 3.
+#de = Andernfalls setze _latex{$height(v) = height(v) + 1$} und gehe zu Schritt 3.
+
+$ALGOTEXT_STEP3_ANNOTATION
+#en = <b>Excess</b><br>Let <i>(G, u, s, t)</i> be a network with preflow <i>f</i>. For every node <i>v</i> except <i>s</i> and <i>t</i> depicts<br><img src="excess-def-en"><br> the excess of <i>v</i>.
+#de = <b>Übermaß</b><br>Sei <i>(G, u, s, t)</i> ein Netzwerk mit Präfluss <i>f</i>. Für jeden Knoten <i>v</i> mit Ausnahme von <i>s</i> und <i>t</i> beschreibt<br><img src="excess-def-de"><br>das Übermaß oder auch den Exzess von <i>v</i>.
+
+$ALGOTEXT_STEP5_ANNOTATION
+#en = To determine which height of which node was changed last, you can specify a list that contains all nodes sequentially.<br> If the height of a node changes, this node is set to the beginning of the list.
+#de = Um zu bestimmen, bei welchem Knoten sich die Höhe zuletzt verändert hat, kann eine Liste geführt werden, in der die Knoten der Reihe nach<br>aufgelistet sind. Ändert sich nun die Höhe eines Knotens, so wird er an den Anfang der Liste gesetzt.
+
+$ALGOTEXT_STEP7_ANNOTATION
+#en = <b>Meaning</b><br><ul><li>u'(v,u): there is capacity on the (residual) edge of <i>v</i> to <i>u</i>.<br>(The edge (v,u) must not exist in the network, but only in the residual network.)</li><li>height(v) > height(u): <i>v</i> is higher than <i>u</i>.</li></ul><b>Residual network</b><br>A residual network (G', u', s, t) to a flow f indicates the residual capacity of a network (G, u, s, t).<br>The weights u' for each edge (v, v') are defined as follows:<br>u'(v, v') := u(v, v') - f(v, v') as well as u'(v', v) := f(v, v')<br>The residual graph G' has the same vertex set as G and in addition to the forward edges e = (v, u) &isin; E with u'(e) > 0 the graph G' contains the backward edges e' = (u, v) too, if u'(e') > 0.<br><br><b>Example</b>:<br><table border="0"><tr><td valign="top">Network (G, u, s, t)</td><td valign="top">Residual network (G', u', s, t)</td><td valign="top"></td></tr><tr><td valign="top"><img src="network"></td><td valign="top"><img src="residual-network"></td><td valign="top">Look at the red marked edges it is:<br>u'(s, 1) = u(s, 1) - f(s, 1) = 5 - 2 = 3 and u'(1, s) = f(s, 1) = 2<br>E.g. the edges (2, s) or (1, 2) are not available in the residual network,<br>because u'(2, s) = f(s, 2) = 0 and u'(1, 2) = u(1, 2) - f(1, 2) = 1 - 1 = 0.</td></tr></table>
+#de = <b>Bedeutung</b><br><ul><li>u'(v,u): es gibt Kapazität auf der (Residual-)Kante von <i>v</i> nach <i>u</i>.<br>(Dabei muss die Kante (v,u) im Netzwerk nicht existieren, sondern nur im Residualnetzwerk.)</li><li>height(v) > height(u): <i>v</i> ist höher als <i>u</i>.</li></ul><b>Residualnetzwerk</b><br>Ein Residualnetzwerk (G', u', s, t) zu einem Fluss f zeigt die restlichen Kapazitäten eines Netzwerkes (G, u, s, t) an.<br>Die Kantengewichte u' sind für jede Kante (v, v') wie folgt definiert:<br>u'(v, v') := u(v, v') - f(v, v') sowie u'(v', v) := f(v, v')<br>Der Residualgraph G' hat dabei dieselbe Knotenmenge wie G und enthält neben den Kanten e = (v, u) &isin; E mit u'(e) > 0 auch die Rückkanten e' = (u, v), wenn u'(e') > 0.<br><br><b>Beispiel</b>:<br><table border="0"><tr><td valign="top">Netzwerk (G, u, s, t)</td><td valign="top">Residualnetzwerk (G', u', s, t)</td><td valign="top"></td></tr><tr><td valign="top"><img src="network"></td><td valign="top"><img src="residual-network"></td><td valign="top">Für die rot markierten Kanten gilt:<br>u'(s, 1) = u(s, 1) - f(s, 1) = 5 - 2 = 3 und u'(1, s) = f(s, 1) = 2.<br>Die Kanten (2, s) oder (1, 2) sind im Residualnetzwerk zum Beispiel nicht vorhanden,<br>da u'(2, s) = f(s, 2) = 0 und u'(1, 2) = u(1, 2) - f(1, 2) = 1 - 1 = 0.</td></tr></table>
+
+$ALGOTEXT_STEP2_12_ANNOTATION
+#en = The height of the source and the sink remains constant at <i>n</i> resp. 0 during the entire algorithm.
+#de = Die Höhe der Quelle und der Senke bleibt während des gesamten Algorithmus konstant bei <i>n</i> bzw. bei 0.
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the exercises of the algorithm steps
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$EXERCISE_STEP1
+#en = Determine the residual network.
+#de = Bestimmen Sie das Residualnetzwerk.
+
+$EXERCISE_STEP2
+#en = Determine a path <i>w</i> (<i>select the nodes of the path in the residual network one after another so that a valid path develops or select nothing if their is no path</i>).
+#de = Bestimmen Sie einen Weg <i>w</i> (<i>wählen Sie die Knoten des Weges nacheinander im Residualnetzwerk aus, sodass ein korrekter Weg entsteht oder wählen Sie nichts, wenn es keinen Weg gibt</i>).
+
+$EXERCISE_STEP3
+#en = Will the algorithm stop?
+#de = Wird der Algorithmus gestoppt?
+
+$EXERCISE_STEP5
+#en = What is the flow <i>f</i> in the network after this step?<br>(<i>Tip: you can select an arc and enter the flow using the keyboard</i>)
+#de = Wie lautet der Fluss <i>f</i> im Netzwerk nach diesem Schritt?<br>(<i>Tipp: Sie können eine Kante auswählen und den Fluss über die Tastatur eingeben</i>)
+
+$EXERCISE_STEP2_MSG_ERR_NOPATH
+#en = The specified nodes do not describe a valid path in the residual network!%nChoose the nodes one after another so that a valid path develops.
+#de = Die von Ihnen angegeben Knoten beschreiben keinen gültigen Weg im Residualnetzwerk!%nWählen Sie die Knoten nacheinander aus, sodass ein gültiger Weg entsteht.
+
+$EXERCISE_STEP2_MSG_ERR_NOPATH_TITLE
+#en = Invalid path
+#de = Ungültiger Weg
+
+$EXERCISE_STEP3_YES
+#en = Yes
+#de = Ja
+
+$EXERCISE_STEP3_NO
+#en = No
+#de = Nein
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the views of the plugin
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$VIEW_NETWORK_TITLE
+#en = Network
+#de = Netzwerk
+
+$VIEW_ALGOTEXT_TITLE
+#en = Algorithm
+#de = Algorithmus
+
+$VIEW_RESIDUALNETWORK_TITLE
+#en = Residual Network
+#de = Residualnetzwerk
+
+$VIEW_HEIGHT_TITLE
+#en = height(v)
+#de = height(v)
+
+$VIEW_HEIGHTLASTCHANGED_TITLE
+#en = height(v): Last Changes
+#de = height(v): Letzte Änderungen
+
+$VIEW_LEGEND_TITLE
+#en = Legend
+#de = Legende
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the legend descriptions
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$LEGEND_NETWORK_SOURCE
+#en = The node s (source)
+#de = Der Knoten s (Quelle)
+
+$LEGEND_NETWORK_SINK
+#en = The node t (sink)
+#de = Der Knoten t (Senke)
+
+$LEGEND_NETWORK_V
+#en = The node v
+#de = Der Knoten v
+
+$LEGEND_NETWORK_U
+#en = The node u
+#de = Der Knoten u
+
+$LEGEND_NETWORK_NEIGHBORS
+#en = The neighbors of the node v
+#de = Die Nachbarknoten des Knotens v
+
+$LEGEND_NETWORK_FLOWCHANGED
+#en = The edge its flow is changed
+#de = Die Kante, deren Fluss geändert wird
+
+$LEGEND_RESIDUALNETWORK_V
+#en = The node v
+#de = Der Knoten v
+
+$LEGEND_RESIDUALNETWORK_U
+#en = The node u
+#de = Der Knoten u
+
+$LEGEND_RESIDUALNETWORK_EDGEVU
+#en = The edge u'(v,u) between the nodes v and u
+#de = Die Kante u'(v,u) zwischen den Knoten v und u
+
+$LEGEND_HEIGHT_MODIFICATION
+#en = The height of a node becomes modified
+#de = Die Höhe eines Knotens wird verändert
+
+$LEGEND_HEIGHTLASTCHANGED_MODIFICATION
+#en = The list becomes becomes modified
+#de = Die Liste wird verändert
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// creator properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// customization properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTFOREGROUND
+#en = Foreground color of the current step in the algorithm
+#de = Vordergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTBACKGROUND
+#en = Background color of the current step in the algorithm
+#de = Hintergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_SOURCE
+#en = Background color of the source node in the network
+#de = Hintergrundfarbe des Quelle-Knotens im Netzwerk
+
+$CUSTOMIZE_COLOR_SINK
+#en = Background color of the sink node in the network
+#de = Hintergrundfarbe des Senke-Knotens im Netzwerk
+
+$CUSTOMIZE_COLOR_MODIFICATIONS
+#en = Color of modifications to objects
+#de = Farbe von Veränderungen an Objekten
+
+$CUSTOMIZE_COLOR_V
+#en = Color of the node v
+#de = Farbe des Knotens v
+
+$CUSTOMIZE_COLOR_U
+#en = Color of the node u
+#de = Farbe des Knotens u
+
+$CUSTOMIZE_COLOR_FLOWCHANGED
+#en = Color of the edge its flow is changed
+#de = Farbe der Kante, deren Fluss verändert wird
+
+$CUSTOMIZE_COLOR_NEIGHBORS
+#en = Color of the neighbors of the node v
+#de = Farbe der Nachbarknoten des Knotens v
+
+$CUSTOMIZE_COLOR_EDGEVU
+#en = Color of the edge between the nodes v and u
+#de = Farbe der Kante zwischen den Knoten v und u
+
+$CUSTOMIZE_LINEWIDTH_V
+#en = Line width of the node v
+#de = Linienstärke des Knotens v
+
+$CUSTOMIZE_LINEWIDTH_U
+#en = Line width of the node u
+#de = Linienstärke des Knoten u
+
+$CUSTOMIZE_LINEWIDTH_EDGEVU
+#en = Line width of the edge between the nodes v and u
+#de = Linienstärke der Kante zwischen den Knoten v und u
+
+$CUSTOMIZE_LINEWIDTH_FLOWCHANGED
+#en = Line width of the edge its flow is changed
+#de = Linienstärke der Kante, deren Fluss verändert wird
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// messages
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$MSG_ERROR_SAVEFILE
+#en = File could not be saved!
+#de = Datei konnte nicht gespeichert werden!
+
+$MSG_ERROR_SAVEFILE_TITLE
+#en = Save File
+#de = Datei speichern
+
+$MSG_ERROR_OPENFILE
+#en = File could not be opened!
+#de = Datei konnte nicht geöffnet werden!
+
+$MSG_ERROR_OPENFILE_TITLE
+#en = Open File
+#de = Datei öffnen

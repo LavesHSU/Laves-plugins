@@ -1,0 +1,337 @@
+﻿// Language file of the dijkstra algorithm plugin
+
+$LANGUAGES
+#en = English
+#de = Deutsch
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// general properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGO_NAME
+#en = Dijkstra's algorithm
+#de = Dijkstra-Algorithmus
+
+$ALGO_DESC
+#en = Finds the shortest path between a starting vertex and another (or every other) vertex.
+#de = Findet den kürzesten Weg zwischen einem Start-Knoten und einem (oder allen) der übrigen Knoten.
+
+$ALGO_TYPE
+#en = Exact algorithm
+#de = Exaktes Verfahren
+
+$ALGO_ASSUMPTIONS
+#en = A simple, non-negative weighted graph G = (V, E) and a starting vertex v<sub>1</sub>.
+#de = Ein schlichter, nicht negativ gewichteter Graph G = (V, E) und ein Start-Knoten v<sub>1</sub>.
+
+$ALGO_PROBLEMAFFILIATION
+#en = Shortest path problem
+#de = Kürzeste-Wege-Problem
+
+$ALGO_SUBJECT
+#en = Logistics
+#de = Logistik
+
+$ALGO_INSTRUCTIONS
+#en = <b>Creating problem entities</b>:<br>Create your own graph and make sure that the graph complies with the assumptions of the algorithm. You can use<br>the toolbar extension to create a graph by use of an adjacency matrix.<br><br><b>Starting the algorithm</b>:<br>Before you start the algorithm select a vertex v<sub>1</sub> the algorithm should begin with.<br><br><b>Exercise Mode</b>:<br>Activate the exercise mode to practice the algorithm in an interactive way. After you have started the algorithm<br>exercises are presented that you have to solve.<br>If an exercise can be solved directly in a view of the algorithm the corresponding view is highlighted with a border, there you can<br>enter your solution and afterwards you have to press the button to solve the exercise. Otherwise (if an exercise is not related to a specific<br>view) you can directly press the button to solve the exercise which opens a dialog where you can enter your solution of the exercise.
+#de = <b>Probleminstanzen erstellen</b>:<br>Erstellen Sie einen Graphen und achten Sie darauf, dass dieser die Voraussetzungen des Algorithmus erfüllt.<br>Über die Toolbar-Erweiterung können Sie einen Graphen mittels einer Adjazenzmatrix erstellen.<br><br><b>Algorithmus starten</b>:<br>Bevor der Algorithmus gestartet werden kann, müssen Sie einen Knoten v<sub>1</sub> auswählen, mit dem der Algorithmus beginnen soll.<br><br><b>Übungsmodus</b>:<br>Aktivieren Sie den Übungsmodus, um den Algorithmus interaktiv zu erlernen. Nachdem Sie den Algorithmus gestartet haben, werden Ihnen<br>Übungsaufgaben gestellt, die Sie lösen müssen.<br>Wenn eine Aufgabe direkt in einer Ansicht des Algorithmus gelöst werden kann, wird die dazugehörige Ansicht mit einer Umrandung hervorgehoben,<br>in der Sie dann die Lösung eingeben können. Danach betätigen Sie den Button zum Lösen der Aufgabe. Ist ein Aufgabe nicht auf eine Ansicht<br>bezogen, können Sie direkt den Button zum Lösen der Aufgabe betätigen. Danach öffnet sich ein Dialog, in dem Sie die Lösung der Aufgabe<br>eingeben können.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the algorithm text
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGOTEXT_PARAGRAPH_INITIALIZATION
+#en = 1. Initialization:
+#de = 1. Initialisierung:
+
+$ALGOTEXT_PARAGRAPH_STOPCRITERION
+#en = 2. Stop criterion:
+#de = 2. Stoppkriterium:
+
+$ALGOTEXT_PARAGRAPH_ITERATION
+#en = 3. Iteration:
+#de = 3. Iteration:
+
+$ALGOTEXT_STEP1_INITSETS
+#en = Set _latex{$A := \{v_1\}$}, _latex{$B := \{v_i \in V | (v_1,v_i) \in E \}$} and _latex{$C := V \setminus (A \cup B)$}.%n
+#de = Setze _latex{$A := \{v_1\}$}, _latex{$B := \{v_i \in V | (v_1,v_i) \in E \}$} und _latex{$C := V \setminus (A \cup B)$}.%n
+
+$ALGOTEXT_SETP2_INITD
+#en = Set _latex{$d(v_1) := 0$}, _latex{$d(v_i) := c(v_1,v_i) \; \forall v_i \in B$} and _latex{$d(v_i) := \infty \; \forall v_i \in C$}.%n
+#de = Setze _latex{$d(v_1) := 0$}, _latex{$d(v_i) := c(v_1,v_i) \; \forall v_i \in B$} und _latex{$d(v_i) := \infty \; \forall v_i \in C$}.%n
+
+$ALGOTEXT_SETP3_INITP
+#en = Set _latex{$p(v_i) := v_1 \; \forall v_i \in B$}.%n%n
+#de = Setze _latex{$p(v_i) := v_1 \; \forall v_i \in B$}.%n%n
+
+$ALGOTEXT_SETP4_STOP
+#en = If _latex{$A = V$} or _latex{$B = \emptyset$} then stop. Otherwise go to step 3.%n%n
+#de = Wenn _latex{$A = V$} oder _latex{$B = \emptyset$}, dann Stopp. Sonst gehe zu Schritt 3.%n%n
+
+$ALGOTEXT_SETP5_DETERMINEVERTEXMINDIST
+#en = Determine _latex{$v_a \in \; \underset{v_i \in B}{argmin} \; d(v_i)$} 
+#de = Bestimme _latex{$v_a \in \; \underset{v_i \in B}{argmin} \; d(v_i)$} 
+
+$ALGOTEXT_SETP6_UPDATESETS
+#en = and set _latex{$A = A \cup \{v_a\}$} and _latex{$B = B \setminus \{v_a\}$}.%n
+#de = und setze _latex{$A = A \cup \{v_a\}$} und _latex{$B = B \setminus \{v_a\}$}.%n
+
+$ALGOTEXT_SETP7_UPDATEDANDPFORALLB
+#en = For all _latex{$v_i \in B$} with _latex{$(v_a,v_i) \in E$}:%nIf _latex{$d(v_a) + c(v_a,v_i) < d(v_i)$} then _latex{$d(v_i) = d(v_a) + c(v_a,v_i)$} and _latex{$p(v_i) = v_a$}%n
+#de = Für alle _latex{$v_i \in B$} mit _latex{$(v_a,v_i) \in E$}:%nWenn _latex{$d(v_a) + c(v_a,v_i) < d(v_i)$}, _latex{$d(v_i) = d(v_a) + c(v_a,v_i)$} und _latex{$p(v_i) = v_a$}%n
+
+$ALGOTEXT_SETP8_UPDATEDANDPFORALLC
+#en = For all _latex{$v_j \in C$} with _latex{$(v_a,v_j) \in E$}:%nSet _latex{$d(v_j) = d(v_a) + c(v_a,v_j)$}, _latex{$p(v_j) = v_a$}, _latex{$B = B \cup \{v_j\}$} and _latex{$C = C \setminus \{v_j\}$}.%n
+#de = Für alle _latex{$v_j \in C$} mit _latex{$(v_a,v_j) \in E$}:%nSetze _latex{$d(v_j) = d(v_a) + c(v_a,v_j)$}, _latex{$p(v_j) = v_a$}, _latex{$B = B \cup \{v_j\}$} und _latex{$C = C \setminus \{v_j\}$}.%n
+
+$ALGOTEXT_STEP9_GOTO
+#en = Go to step 2.
+#de = Gehe zu Schritt 2.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the exercises of the algorithm steps
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$EXERCISE_SETP1
+#en = Specify the sets A, B and C.
+#de = Geben Sie die Mengen A, B und C an.
+
+$EXERCISE_STEP2
+#en = Specify d(v) in the execution table (<i>use "-" as infinity</i>).
+#de = Geben Sie d(v) in der Ausführungs-Tabelle an (<i>nutzen Sie "-" für unendlich</i>).
+
+$EXERCISE_STEP3
+#en = Specify p(v) in the execution table.
+#de = Geben Sie p(v) in der Ausführungs-Tabelle an.
+
+$EXERCISE_STEP4
+#en = Does the algorithm terminate or does he resume with 3.?
+#de = Wird der Algorithmus beendet oder mit 3. fortgefahren?
+
+$EXERCISE_STEP5
+#en = Choose the vertex in the graph with a minimum value in d(v).
+#de = Wählen Sie den Knoten im Graphen mit einem minimalen Wert in d(v).
+
+$EXERCISE_STEP6
+#en = What are the sets A and B?
+#de = Wie lauten die Mengen A und B?
+
+$EXERCISE_STEP7
+#en = What are d(v) and p(v) (<i>use "-" as infinity</i>)?
+#de = Wie lauten d(v) und p(v) (<i>nutzen Sie "-" für unendlich</i>)?
+
+$EXERCISE_STEP8
+#en = What are d(v) and p(v) (<i>use "-" as infinity</i>)?
+#de = Wie lauten d(v) und p(v) (<i>nutzen Sie "-" für unendlich</i>)?
+
+$FINAL_EXERCISE
+#en = What is the shortest path from vertex &v_1& to vertex &v_i& and how long is this path?
+#de = Wie lautet der kürzeste Weg von Knoten &v_1& zu Knoten &v_i& und wie lang ist er?
+
+$EXERCISE_HINT_SETINPUT
+#en = Use a comma as the delimiter!
+#de = Nutzen Sie ein Komma als Trennzeichen!
+
+$EXERCISE_STEP4_OPTIONTERMINATE
+#en = Algorithm terminates
+#de = Algorithmus wird beendet
+
+$EXERCISE_STEP4_OPTIONRESUME
+#en = Algorithm resumes with step 3
+#de = Algorithmus wird mit Schritt 3 fortgesetzt
+
+$FINAL_EXERCISE_PATH
+#en = Path =
+#de = Weg =
+
+$FINAL_EXERCISE_LENGTH
+#en = Length =
+#de = Länge =
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the views of the plugin
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$VIEW_GRAPH_TITLE
+#en = Graph
+#de = Graph
+
+$VIEW_ALGOTEXT_TITLE
+#en = Algorithm
+#de = Algorithmus
+
+$VIEW_EXECTABLE_TITLE
+#en = Execution Table
+#de = Ausführungstabelle
+
+$VIEW_EXECTABLE_FIRSTCOL
+#en = Vertices:
+#de = Knoten:
+
+$VIEW_SETS_TITLE
+#en = Set Overview
+#de = Mengen-Übersicht
+
+$VIEW_LEGEND_TITLE
+#en = Legend
+#de = Legende
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the legend descriptions
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$LEGEND_GRAPH_STARTVERTEX
+#en = starting vertex v<sub>1</sub>
+#de = Start-Knoten v<sub>1</sub>
+
+$LEGEND_GRAPH_SETA
+#en = Set A of vertices where a shortest path is known
+#de = Menge A der Knoten, zu denen ein kürzester Weg bekannt ist
+
+$LEGEND_GRAPH_SETB
+#en = Set B of vertices that are not contained in A but connected with a vertex of set A
+#de = Menge B der Knoten, die nicht in A enthalten aber über eine Kante eines Knotens aus A erreichbar sind
+
+$LEGEND_GRAPH_SETC
+#en = Set C of vertices that are not in set A and B meaning C = V \ (A &cup; B)
+#de = Menge C der Knoten, die nicht in A und B sind, d.h. C = V \ (A &cup; B)
+
+$LEGEND_GRAPH_MINDISTVERTEX
+#en = The current vertex v<sub>a</sub>
+#de = Der aktuelle Knoten v<sub>a</sub>
+
+$LEGEND_GRAPH_CURREDGE
+#en = The current edge that is under investigation
+#de = Kante, die aktuell untersucht wird
+
+$LEGEND_EXECTABLE_CURRSETELEMS
+#en = Set of vertices that are under investigation
+#de = Menge der Knoten, die untersucht werden
+
+$LEGEND_EXECTABLE_CURRVERTEX
+#en = The current vertex that is under investigation
+#de = Knoten, der aktuell untersucht wird
+
+$LEGEND_EXECTABLE_CURRMINDISTVERTEX
+#en = The vertex of the investigated set with a current minimum value in d(v)
+#de = Knoten aus der untersuchten Menge mit dem aktuell minimalen Wert in d(v)
+
+$LEGEND_EXECTABLE_MINDISTVERTEX
+#en = The current vertex v<sub>a</sub>
+#de = Der aktuelle Knoten v<sub>a</sub>
+
+$LEGEND_EXECTABLE_MODIFICATIONS
+#en = Changes in d(v) and/or p(v)
+#de = Veränderungen in d(v) und/oder p(v)
+
+$LEGEND_SETS_MODIFICATIONS
+#en = Changes in the sets A, B or C
+#de = Veränderungen in den Mengen A, B oder C
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// creator properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CREATORPREFS_DIRECTED
+#en = directed
+#de = gerichtet
+
+$CREATORPREFS_DIRECTED_DESC
+#en = Apply algorithm to a directed graph
+#de = Algorithmus auf gerichteten Graphen anwenden
+
+$CREATORPREFS_UNDIRECTED
+#en = undirected
+#de = ungerichtet
+
+$CREATORPREFS_UNDIRECTED_DESC
+#en = Apply algorithm to an undirected graph
+#de = Algorithmus auf ungerichteten Graphen anwenden
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// customization properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTFOREGROUND
+#en = Foreground color of the current step in the algorithm
+#de = Vordergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTBACKGROUND
+#en = Background color of the current step in the algorithm
+#de = Hintergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_SETA
+#en = Background color of the vertices of set A
+#de = Hintergrundfarbe der Knoten aus Menge A
+
+$CUSTOMIZE_COLOR_SETB
+#en = Background color of the vertices of set B
+#de = Hintergrundfarbe der Knoten aus Menge B
+
+$CUSTOMIZE_COLOR_SETC
+#en = Background color of the vertices of set C
+#de = Hintergrundfarbe der Knoten aus Menge C
+
+$CUSTOMIZE_COLOR_MINDISTVERTEX
+#en = Background color of the vertex v<sub>a</sub>
+#de = Hintergrundfarbe des Knotens v<sub>a</sub>
+
+$CUSTOMIZE_COLOR_CURRSETELEMS
+#en = Background color of the vertices in the execution table that are under investigation
+#de = Hintergrundfarbe der Knoten in der Ausführungstabelle, die untersucht werden
+
+$CUSTOMIZE_COLOR_CURRVERTEX
+#en = Background color of the vertex in the execution table that is currently investigated
+#de = Hintergrundfarbe des Knotens in der Ausführungstabelle, der gerade untersucht wird
+
+$CUSTOMIZE_COLOR_MODIFICATIONS
+#en = Color of modifications to objects
+#de = Farbe von Veränderungen an Objekten
+
+$CUSTOMIZE_LINEWIDTH_STARTVERTEX
+#en = Line width of the starting vertex
+#de = Linienstärke des Start-Knotens
+
+$CUSTOMIZE_LINEWIDTH_CURREDGE
+#en = Line with of the edge that is currently investigated
+#de = Linienstärke der Kante, die gerade untersucht wird
+
+$CUSTOMIZE_LINEWIDTH_VERTEXMINDIST
+#en = Line with of the vertex v<sub>a</sub>
+#de = Linienstärke des Knotens v<sub>a</sub>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// messages
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$MSG_ERROR_SAVEFILE
+#en = File could not be saved!
+#de = Datei konnte nicht gespeichert werden!
+
+$MSG_ERROR_SAVEFILE_TITLE
+#en = Save File
+#de = Datei speichern
+
+$MSG_ERROR_OPENFILE
+#en = File could not be opened!
+#de = Datei konnte nicht geöffnet werden!
+
+$MSG_ERROR_OPENFILE_TITLE
+#en = Open File
+#de = Datei öffnen
+
+$MSG_INFO_SELECTSTARTVERTEX
+#en = Please select the starting vertex in the graph!
+#de = Bitte wählen Sie den Start-Knoten im Graphen aus!
+
+$MSG_INFO_SELECTSTARTVERTEX_TITLE
+#en = Select starting vertex
+#de = Start-Knoten wählen
+
+$MSG_INFO_NEGATIVEWEIGHTS
+#en = The created graph contains edges with a negative weight!%nDijkstra's algorithm can only be applied to non-negative weighted graphs.
+#de = Der erstellte Graph enthält Kanten mit negativen Gewichten!%nDer Dijkstra-Algorithmus kann nur auf nicht negativ gewichtete Graphen angewendet werden.
+
+$MSG_INFO_NEGATIVEWEIGHTS_TITLE
+#en = Negative edge weights
+#de = Negative Kanten-Gewichte

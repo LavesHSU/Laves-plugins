@@ -1,0 +1,353 @@
+﻿// Language file of the nearest neighbor algorithm plugin
+
+$LANGUAGES
+#en = English
+#de = Deutsch
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// general properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGO_NAME
+#en = Savings algorithm
+#de = Savings-Verfahren
+
+$ALGO_DESC
+#en = Finds a cycle of little length which contains all vertices of the graph and which can be separated into disjoint cycles, each of which fulfill the delivery constraint.
+#de = Findet einen Kreis mit geringer Länge, der alle Knoten des Graphen enthält und der in disjunkte Kreise zerlegt werden kann, die die Lieferbedingung erfüllen.
+
+$ALGO_TYPE
+#en = Heuristic
+#de = Heuristik
+
+$ALGO_ASSUMPTIONS
+#en = An edge- and vertex weighted (c(e), b(v), each non-negative), undirected graph K<sub>n</sub>, a starting vertex v<sub>s</sub> and a delivery capacity b<sub>max</sub> ≥ max{b(v)}.
+#de = Ein Kanten- und Knotengewichteter (c(e), b(v), jeweils nicht negativ), ungerichteter Graph K<sub>n</sub>, ein Start-Knoten v<sub>s</sub> und eine Lieferkapazität b<sub>max</sub> ≥ max{b(v)}.
+
+$ALGO_PROBLEMAFFILIATION
+#en = Vehicle routing problem
+#de = Tourenplanungsprobleme
+
+$ALGO_SUBJECT
+#en = Logistics
+#de = Logistik
+
+$ALGO_INSTRUCTIONS
+#en = <b>Creating problem entities</b>:<br>Create your own graph and make sure that the graph complies with the assumptions of the algorithm. You can use<br>the toolbar extensions to check whether the created graph is complete, to create a complete graph by indicating the number of vertices, to<br>create a graph by use of an adjacency matrix or you can arrange the vertices of your created graph in a circle.<br><br><b>Starting the algorithm</b>:<br>Before you start the algorithm select a vertex v<sub>s</sub> the algorithm should begin with and afterwards enter the delivery capacity b<sub>max</sub> in the following dialog.<br><br><b>Exercise Mode</b>:<br>Activate the exercise mode to practice the algorithm in an interactive way. After you have started the algorithm<br>exercises are presented that you have to solve.<br>If an exercise can be solved directly in a view of the algorithm the corresponding view is highlighted with a border, there you can<br>enter your solution and afterwards you have to press the button to solve the exercise. Otherwise (if an exercise is not related to a specific<br>view) you can directly press the button to solve the exercise which opens a dialog where you can enter your solution of the exercise.
+#de = <b>Probleminstanzen erstellen</b>:<br>Erstellen Sie einen Graphen und achten Sie darauf, dass dieser die Voraussetzungen des Algorithmus erfüllt.<br>Über die Toolbar-Erweiterungen können Sie überprüfen, ob der erstellte Graph vollständig ist, einen vollständigen Graphen erstellen, indem<br>Sie die Anzahl Knoten angeben, einen Graphen mittels einer Adjazenzmatrix erstellen oder die Knoten eines erstellten Graphen in einem Kreis<br>anordnen.<br><br><b>Algorithmus starten</b>:<br>Bevor der Algorithmus gestartet werden kann, müssen Sie einen Knoten v<sub>s/sub> auswählen, mit dem der Algorithmus beginnen soll und geben Sie im darauf folgenden Dialog die Lieferkapazität b<sub>max</sub> an.<br><br><b>Übungsmodus</b>:<br>Aktivieren Sie den Übungsmodus, um den Algorithmus interaktiv zu erlernen. Nachdem Sie den Algorithmus gestartet haben, werden Ihnen<br>Übungsaufgaben gestellt, die Sie lösen müssen.<br>Wenn eine Aufgabe direkt in einer Ansicht des Algorithmus gelöst werden kann, wird die dazugehörige Ansicht mit einer Umrandung hervorgehoben,<br>in der Sie dann die Lösung eingeben können. Danach betätigen Sie den Button zum Lösen der Aufgabe. Ist ein Aufgabe nicht auf eine Ansicht<br>bezogen, können Sie direkt den Button zum Lösen der Aufgabe betätigen. Danach öffnet sich ein Dialog, in dem Sie die Lösung der Aufgabe<br>eingeben können.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the algorithm text
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGOTEXT_PARAGRAPH_INITIALIZATION
+#en = 1. Initialization:
+#de = 1. Initialisierung:
+
+$ALGOTEXT_PARAGRAPH_ITERATION
+#en = 2. Iteration:
+#de = 2. Iteration:
+
+$ALGOTEXT_STEP1_INIT
+#en = Set _latex{$r := (v_s,v_1,v_s,v_2,v_s,...)$} with _latex{$v_i \in V$}, _latex{$i = 1, 2, ..., n - 1$} (Oscillation Tours).%n
+#de = Setze _latex{$r := (v_s,v_1,v_s,v_2,v_s,...)$} mit _latex{$v_i \in V$}, _latex{$i = 1, 2, ..., n - 1$} (Pendeltouren).%n
+
+$ALGOTEXT_STEP2_INIT
+#en = Calculate the savings for each pair of vertices _latex{$v_i,v_j \in V \setminus \{v_s\}$}:  _latex{$sav(v_i,v_j) := c(v_s,v_i) + c(v_s,v_j) - c(v_i,v_j)$}.%n
+#de = Berechne für jedes Knotenpaar _latex{$v_i,v_j \in V \setminus \{v_s\}$} die "Savings": _latex{$sav(v_i,v_j) := c(v_s,v_i) + c(v_s,v_j) - c(v_i,v_j)$}.%n
+
+$ALGOTEXT_STEP3_INIT
+#en = List all pairs of vertices with positive savings value in non-increasing order according to their savings value.%n%n
+#de = Sortiere alle Knotenpaare mit positivem Savingswert absteigend nach ihrem Savingswert in einer Liste.%n%n
+
+$ALGOTEXT_STEP4_IT
+#en = For each vertex pair _latex{$v_i,v_j$} from the list:
+#de = Für jedes Knotenpaar _latex{$v_i,v_j$} aus der Liste:
+
+$ALGOTEXT_STEP5_IT
+#en = If the edges _latex{$(v_s,v_i)$} (_latex{$(v_i,v_s)$}, resp.) and _latex{$(v_s,v_j)$} (_latex{$(v_j,v_s)$}, resp.) are still contained in _latex{$r$} and if _latex{$v_i$} and _latex{$v_j$} are elements in different tours, merge the corresponding disjoint cycles within _latex{$r$} in such a way to a new tour _latex{$r'$} that both mentioned edges are being substituted by _latex{$(v_i,v_j)$}. 
+#de = Wenn in _latex{$r$} noch die Kanten _latex{$(v_s,v_i)$} (bzw. _latex{$(v_i,v_s)$}) und _latex{$(v_s,v_j)$} (bzw. _latex{$(v_j,v_s)$}) enthalten sind, und _latex{$v_i$} und _latex{$v_j$} Elemente unterschiedlicher Touren sind, dann füge die entsprechenden disjunkten Kreise aus _latex{$r$} derart zu einer neuen Tour _latex{$r'$} zusammen, dass die beiden genannten Kanten durch _latex{$(v_i,v_j)$} ersetzt werden. 
+
+$ALGOTEXT_STEP6_IT
+#en = If the resulting tour _latex{$r'$} fulfills the capacity constraints, set _latex{$r := r'$}.
+#de = Erfüllt der so entstehende Tourenplan _latex{$r'$} die Kapazitätsbeschränkungen, so setze _latex{$r := r'$}.
+
+$ALGOTEXT_STEP5_ANNOTATION
+#en = <b>Cycle creation</b><br>Cases that need to be checked:<br><table border="0"><tr><td valign="top"></td><td valign="top"></td><td valign="top"><b>Resolve to</b></td></tr><tr><td valign="top"><b>1. (v<sub>i</sub>, v<sub>s</sub>) and (v<sub>s</sub>, v<sub>j</sub>)</b></td><td valign="top"><img src="case1"></td><td valign="top">Merge the pitch cycle of v<sub>i</sub> with the pitch cycle of v<sub>j</sub><br><b>Example</b>: v<sub>i</sub> = 1, v<sub>j</sub> = 3, (s, 2, 1, s) and (s, 3, 4, s)<br>Result: (s, 2, 1, 3, 4, s)</td></tr><tr><td valign="top"><b>2. (v<sub>s</sub>, v<sub>i</sub>) and (v<sub>j</sub>, v<sub>s</sub>)</b></td><td valign="top"><img src="case2"></td><td valign="top">Merge the pitch cycle of v<sub>j</sub> with the pitch cycle of v<sub>i</sub><br><b>Example</b>: v<sub>i</sub> = 1, v<sub>j</sub> = 3, (s, 1, 2, s) and (s, 4, 3, s)<br>Result: (s, 4, 3, 1, 2, s)</td></tr><tr><td valign="top"><b>3. (v<sub>i</sub>, v<sub>s</sub>) and (v<sub>j</sub>, v<sub>s</sub>)</b></td><td valign="top"><img src="case3"></td><td valign="top">Merge the pitch cycle of v<sub>i</sub> with the reversed pitch cycle of v<sub>j</sub><br><b>Example</b>: v<sub>i</sub> = 1, v<sub>j</sub> = 3, (s, 2, 1, s) and (s, 4, 3, s)<br>Reverse: (s, 4, 3, s) to (s, 3, 4, s)<br>Result: (s, 2, 1, 3, 4, s)</td></tr><tr><td valign="top"><b>4. (v<sub>s</sub>, v<sub>i</sub>) and (v<sub>s</sub>, v<sub>j</sub>)</b></td><td valign="top"><img src="case4"></td><td valign="top">Reverse the pitch cycle of v<sub>i</sub> and merge it with the pitch cycle of <sub>j</sub><br><b>Example</b>: v<sub>i</sub> = 1, v<sub>j</sub> = 3, (s, 1, 2, s) and (s, 3, 4, s)<br>Reverse: (s, 1, 2, s) to (s, 2, 1, s)<br>Result: (s, 2, 1, 3, 4, s)</td></tr></table>
+#de = <b>Kreis-Erstellung</b><br>Fälle, die zu prüfen sind:<br><table border="0"><tr><td valign="top"></td><td valign="top"></td><td valign="top"><b>Auflösen zu</b></td></tr><tr><td valign="top"><b>1. (v<sub>i</sub>, v<sub>s</sub>) und (v<sub>s</sub>, v<sub>j</sub>)</b></td><td valign="top"><img src="case1"></td><td valign="top">Teilkreis von v<sub>i</sub> mit Teilkreis von v<sub>j</sub> verschmelzen<br><b>Beispiel</b>: v<sub>i</sub> = 1, v<sub>j</sub> = 3, (s, 2, 1, s) und (s, 3, 4, s)<br>Ergebnis: (s, 2, 1, 3, 4, s)</td></tr><tr><td valign="top"><b>2. (v<sub>s</sub>, v<sub>i</sub>) und (v<sub>j</sub>, v<sub>s</sub>)</b></td><td valign="top"><img src="case2"></td><td valign="top">Teilkreis von v<sub>j</sub> mit Teilkreis von v<sub>i</sub> verschmelzen<br><b>Beispiel</b>: v<sub>i</sub> = 1, v<sub>j</sub> = 3, (s, 1, 2, s) und (s, 4, 3, s)<br>Ergebnis: (s, 4, 3, 1, 2, s)</td></tr><tr><td valign="top"><b>3. (v<sub>i</sub>, v<sub>s</sub>) und (v<sub>j</sub>, v<sub>s</sub>)</b></td><td valign="top"><img src="case3"></td><td valign="top">Teilkreis von v<sub>i</sub> mit "umgekehrtem" Teilkreis von v<sub>j</sub> verschmelzen<br><b>Beispiel</b>: v<sub>i</sub> = 1, v<sub>j</sub> = 3, (s, 2, 1, s) und (s, 4, 3, s)<br>Umkehren: (s, 4, 3, s) wird zu (s, 3, 4, s)<br>Ergebnis: (s, 2, 1, 3, 4, s)</td></tr><tr><td valign="top"><b>4. (v<sub>s</sub>, v<sub>i</sub>) und (v<sub>s</sub>, v<sub>j</sub>)</b></td><td valign="top"><img src="case4"></td><td valign="top">Teilkreis von v<sub>i</sub> "umkehren" und mit Teilkreis von v<sub>j</sub> verschmelzen<br><b>Beispiel</b>: v<sub>i</sub> = 1, v<sub>j</sub> = 3, (s, 1, 2, s) und (s, 3, 4, s)<br>Umkehren: (s, 1, 2, s) wird zu (s, 2, 1, s)<br>Ergebnis: (s, 2, 1, 3, 4, s)</td></tr></table>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the exercises of the algorithm steps
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$EXERCISE_STEP1
+#en = Specify an Oscillation Tour.
+#de = Geben Sie eine Pendeltour an.
+
+$EXERCISE_STEP2
+#en = Calculate the savings (<i>use the buttons in the header bar of the savings view to add or remove items</i>).
+#de = Berechnen Sie die Savings (<i>benutzen Sie die Buttons in der Kopfleiste der Savings-Ansicht, um Items hinzuzufügen oder zu löschen</i>).
+
+$EXERCISE_STEP3
+#en = List all pairs of vertices with positive savings value and sort them (<i>select the items in the savings view and use the button in the header bar of the list view to import the selected items</i>).
+#de = Übertragen Sie alle Knotenpaare mit positivem Savingswert und sortieren Sie die Liste (<i>wählen Sie die Items in der Savings-Ansicht aus und benutzen Sie den Button in der Kopfleiste der Listen-Ansicht, um die ausgewählten Items zu übertragen</i>).
+
+$EXERCISE_STEP4
+#en = Select the current vertex pair in the graph.
+#de = Wählen Sie das aktuelle Knotenpaar im Graphen aus.
+
+$EXERCISE_STEP5
+#en = Is it possible to create a new tour <i>r'</i> and if so, what is it?
+#de = Ist eine neue Tour <i>r'</i> möglich und wenn ja, wie lautet Sie?
+
+$EXERCISE_STEP6
+#en = Does <i>r'</i> fulfill the delivery constraint?
+#de = Erfüllt <i>r'</i> die Lieferbedingung?
+
+$EXERCISE_STEP2_BTN_ADD_TOOLTIP
+#en = Add new item
+#de = Neues Item hinzufügen
+
+$EXERCISE_STEP2_BTN_REMOVE_TOOLTIP
+#en = Remove last added item
+#de = Zuletzt hinzugefügtes Item entfernen
+
+$EXERCISE_STEP3_BTN_IMPORT_TOOLTIP
+#en = Import selected items from the Savings view
+#de = Ausgewählte Items der Savings-Ansicht übernehmen
+
+$EXERCISE_STEP5_6_YES
+#en = Yes
+#de = Ja
+
+$EXERCISE_STEP5_6_NO
+#en = No
+#de = Nein
+
+$EXERCISE_HINT_CYCLEINPUT
+#en = Use a comma as the delimiter!
+#de = Nutzen Sie ein Komma als Trennzeichen!
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the views of the plugin
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$VIEW_GRAPH_TITLE
+#en = Graph
+#de = Graph
+
+$VIEW_GRAPH_VERTEXPROP_WEIGHT
+#en = Weight
+#de = Bewertung
+
+$VIEW_ALGOTEXT_TITLE
+#en = Algorithm
+#de = Algorithmus
+
+$VIEW_CYCLER_TITLE
+#en = Cycle r
+#de = Kreis r
+
+$VIEW_CYCLER_APOSTROPHE_TITLE
+#en = Cycle r'
+#de = Kreis r'
+
+$VIEW_LIST_TITLE
+#en = List
+#de = Liste
+
+$VIEW_SAVINGS_TITLE
+#en = Savings
+#de = Savings
+
+$VIEW_LEGEND_TITLE
+#en = Legend
+#de = Legende
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the legend descriptions
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$LEGEND_GRAPH_STARTVERTEX
+#en = The starting vertex v<sub>s</sub>
+#de = Der Start-Knoten v<sub>s</sub>
+
+$LEGEND_GRAPH_CYCLER_DIRECTED
+#en = The cycle r, whereby the directed edges show the running direction of the walk
+#de = Der Kreis r, dabei zeigen die gerichteten Kanten die Laufrichtung des Weges an
+
+$LEGEND_GRAPH_CYCLER_UNDIRECTED
+#en = The undirected edges of the cycle r
+#de = Die ungerichteten Kanten des Kreises r
+
+$LEGEND_GRAPH_UNUSEDEDGES
+#en = The currently unused edges of the graph
+#de = Die momentan unbenutzten Kanten des Graphen
+
+$LEGEND_GRAPH_CURRVERTEXPAIR
+#en = The current vertex pair v<sub>i</sub>, v<sub>j</sub>
+#de = Das aktuelle Knotenpaar v<sub>i</sub>, v<sub>j</sub>
+
+$LEGEND_GRAPH_EDGESTOREMOVE
+#en = The edges of the cycle r that are substituted by (v<sub>i</sub>, v<sub>j</sub>)
+#de = Die Kanten des Kreises r, die durch (v<sub>i</sub>, v<sub>j</sub>) ersetzt werden
+
+$LEGEND_GRAPH_EDGETOADD
+#en = The edge (v<sub>i</sub>, v<sub>j</sub>) that substitutes the edges (v<sub>s</sub>, v<sub>i</sub>) ((v<sub>i</sub>, v<sub>s</sub>), resp.) and (v<sub>s</sub>, v<sub>j</sub>) (v<sub>j</sub>, v<sub>s</sub>), resp.)
+#de = Die Kante (v<sub>i</sub>, v<sub>j</sub>), die die Kanten (v<sub>s</sub>, v<sub>i</sub>) (bzw. (v<sub>i</sub>, v<sub>s</sub>)) und (v<sub>s</sub>, v<sub>j</sub>) (bzw. (v<sub>j</sub>, v<sub>s</sub>)) ersetzt
+
+$LEGEND_SAVINGS_POSITIVESAVINGSVALUE
+#en = A positive savings value
+#de = Ein positiver Savingswert
+
+$LEGEND_SAVINGS_NONPOSITIVESAVINGSVALUE
+#en = A non-positive savings value
+#de = Ein nicht-positiver Savingswert
+
+$LEGEND_LIST_CURRVERTEXPAIR
+#en = The current vertex pair v<sub>i</sub>, v<sub>j</sub>
+#de = Das aktuelle Knotenpaar v<sub>i</sub>, v<sub>j</sub>
+
+$LEGEND_CYCLE_MODIFICATION
+#en = The cycle r becomes modified
+#de = Der Kreis r wird verändert
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// creator properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// customization properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTFOREGROUND
+#en = Foreground color of the current step in the algorithm
+#de = Vordergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTBACKGROUND
+#en = Background color of the current step in the algorithm
+#de = Hintergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_STARTVERTEX
+#en = Background color of the starting vertex v<sub>s</sub>
+#de = Hintergrundfarbe des Start-Knotens v<sub>s</sub>
+
+$CUSTOMIZE_COLOR_CYCLER
+#en = Color of the cycle r
+#de = Farbe des Kreises r
+
+$CUSTOMIZE_COLOR_POSITIVESAVINGSVALUE
+#en = Background color of an item with a positive savings value
+#de = Hintergrundfarbe eines Items mit positivem Savingswert
+
+$CUSTOMIZE_COLOR_NONPOSITIVESAVINGSVALUE
+#en = Background color of an item with a non-positive savings value
+#de = Hintergrundfarbe eines Items mit nicht-positivem Savingswert
+
+$CUSTOMIZE_COLOR_USEDEDGES
+#en = Color of the edges of the underlying undirected input graph that are contained in the cycle r
+#de = Farbe der Kanten des zugrundeliegenden ungerichteten Eingabe-Graphen, die im Kreis r enthalten sind
+
+$CUSTOMIZE_COLOR_UNUSEDEDGES
+#en = Color of the edges of the underlying undirected input graph that are not contained in the cycle r
+#de = Farbe der Kanten des zugrundeliegenden ungerichteten Eingabe-Graphen, die nicht im Kreis r enthalten sind
+
+$CUSTOMIZE_COLOR_VERTEXPAIR
+#en = Background color of the current vertex pair v<sub>i</sub>, v<sub>j</sub>
+#de = Hintergrundfarbe des aktuellen Knotenpaares v<sub>i</sub>, v<sub>j</sub>
+
+$CUSTOMIZE_COLOR_EDGESTOREMOVE
+#en = Color of the edges of cycle r that are substituted
+#de = Farbe der Kanten des Kreises r, die ersetzt werden
+
+$CUSTOMIZE_COLOR_EDGETOADD
+#en = Color of the surrogate edge (v<sub>i</sub>, v<sub>j</sub>)
+#de = Farbe der Ersatz-Kante (v<sub>i</sub>, v<sub>j</sub>)
+
+$CUSTOMIZE_COLOR_MODIFICATIONS
+#en = Color of modifications to objects
+#de = Farbe von Veränderungen an Objekten
+
+$CUSTOMIZE_LINEWIDTH_STARTVERTEX
+#en = Line width of the starting vertex v<sub>s</sub>
+#de = Linienstärke des Start-Knotens v<sub>s</sub>
+
+$CUSTOMIZE_LINEWIDTH_CYCLER
+#en = Line with of the cycle r
+#de = Linienstärke des Kreises r
+
+$CUSTOMIZE_LINEWIDTH_EDGETOADD
+#en = Line with of the surrogate edge
+#de = Linienstärke der Ersatz-Kante
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// messages
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$MSG_ERROR_SAVEFILE
+#en = File could not be saved!
+#de = Datei konnte nicht gespeichert werden!
+
+$MSG_ERROR_SAVEFILE_TITLE
+#en = Save File
+#de = Datei speichern
+
+$MSG_ERROR_OPENFILE
+#en = File could not be opened!
+#de = Datei konnte nicht geöffnet werden!
+
+$MSG_ERROR_OPENFILE_TITLE
+#en = Open File
+#de = Datei öffnen
+
+$MSG_INFO_SELECTSTARTVERTEX
+#en = Please select the starting vertex in the graph!
+#de = Bitte wählen Sie den Start-Knoten im Graphen aus!
+
+$MSG_INFO_SELECTSTARTVERTEX_TITLE
+#en = Select starting vertex
+#de = Start-Knoten wählen
+
+$MSG_INFO_NOTCOMPLETE
+#en = The created graph is not complete!%nThe Savings algorithm can only be applied to complete graphs.
+#de = Der erstellte Graph ist nicht vollständig!%nDas Savings-Verfahren kann nur auf vollständige Graphen angewendet werden.
+
+$MSG_INFO_NOTCOMPLETE_TITLE
+#en = No complete graph
+#de = Kein vollständiger Graph
+
+$MSG_INFO_NEGATIVEWEIGHTS
+#en = The created graph contains negative weights!%nThe Savings algorithm can only be applied to non-negative weighted graphs (see assumptions).
+#de = Der erstellte Graph enthält negative Gewichte!%nDas Savings-Verfahren kann nur auf nicht negativ gewichtete Graphen angewendet werden (siehe Voraussetzungen).
+
+$MSG_INFO_NEGATIVEWEIGHTS_TITLE
+#en = Negative weights
+#de = Negative Gewichte
+
+$MSG_INFO_INVALIDCYCLEINPUT
+#en = Your input is incorrect!%nPlease enter the cycle in the specified form and only use vertex captions that are existing.
+#de = Ihre Eingabe ist inkorrekt!%nGeben Sie den Kreis in der angegebenen Form ein und verwenden Sie nur vorhandene Knoten-Beschriftungen.
+
+$MSG_INFO_INVALIDCYCLEINPUT_TITLE
+#en = Invalid input
+#de = Ungültige Eingabe
+
+$MSG_INFO_INVALIDDELIVERYCAPACITY
+#en = Your input is incorrect!%nThe delivery capacity has to be a number and must be greater or equal the maximum vertex weight in the graph.
+#de = Ihre Eingabe ist inkorrekt!%nDie Lieferkapazität muss eine Zahl und zudem größer oder gleich der maximalen Knotenbewertung im Graphen sein.
+
+$MSG_INFO_INVALIDDELIVERYCAPACITY_TITLE
+#en = Invalid input
+#de = Ungültige Eingabe
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// dialogs
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$DELIVERYCAPACITYDLG_TITLE
+#en = Delivery Capacity
+#de = Lieferkapazität
+
+$DELIVERYCAPACITYDLG_DESC
+#en = Enter the delivery capacity b<sub>max</sub> ≥ max{b(v)}.
+#de = Geben Sie die Lieferkapazität b<sub>max</sub> ≥ max{b(v)} ein.

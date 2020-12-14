@@ -1,0 +1,329 @@
+﻿// Language file of the nearest neighbor algorithm plugin
+
+$LANGUAGES
+#en = English
+#de = Deutsch
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// general properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGO_NAME
+#en = Nearest neighbor
+#de = Nächster-Nachbar
+
+$ALGO_DESC
+#en = A starting algorithm to find a Hamiltonian cycle that contains each vertex of a graph exactly once.
+#de = Ein Eröffnungsverfahren, um in einem Graphen eine Rundreise zu finden, die jeden Knoten genau einmal enthält.
+
+$ALGO_TYPE
+#en = Heuristic
+#de = Heuristik
+
+$ALGO_ASSUMPTIONS
+#en = A non-negative weighted graph K<sub>n</sub> with n > 2 and a starting vertex v<sub>s</sub>.
+#de = Ein nicht negativ gewichteter Graph K<sub>n</sub> mit n > 2 und ein Start-Knoten v<sub>s</sub>.
+
+$ALGO_PROBLEMAFFILIATION
+#en = Traveling salesman problem
+#de = Traveling Salesman Probleme
+
+$ALGO_SUBJECT
+#en = Logistics
+#de = Logistik
+
+$ALGO_INSTRUCTIONS
+#en = <b>Creating problem entities</b>:<br>Create your own graph and make sure that the graph complies with the assumptions of the algorithm. You can use<br>the toolbar extensions to check whether the created graph is complete, to create a complete graph by indicating the number of vertices, to<br>create a graph by use of an adjacency matrix or you can arrange the vertices of your created graph in a circle.<br><br><b>Starting the algorithm</b>:<br>Before you start the algorithm select a vertex v<sub>s</sub> the algorithm should begin with.<br><br><b>Exercise Mode</b>:<br>Activate the exercise mode to practice the algorithm in an interactive way. After you have started the algorithm<br>exercises are presented that you have to solve.<br>If an exercise can be solved directly in a view of the algorithm the corresponding view is highlighted with a border, there you can<br>enter your solution and afterwards you have to press the button to solve the exercise. Otherwise (if an exercise is not related to a specific<br>view) you can directly press the button to solve the exercise which opens a dialog where you can enter your solution of the exercise.
+#de = <b>Probleminstanzen erstellen</b>:<br>Erstellen Sie einen Graphen und achten Sie darauf, dass dieser die Voraussetzungen des Algorithmus erfüllt.<br>Über die Toolbar-Erweiterungen können Sie überprüfen, ob der erstellte Graph vollständig ist, einen vollständigen Graphen erstellen, indem<br>Sie die Anzahl Knoten angeben, einen Graphen mittels einer Adjazenzmatrix erstellen oder die Knoten eines erstellten Graphen in einem Kreis<br>anordnen.<br><br><b>Algorithmus starten</b>:<br>Bevor der Algorithmus gestartet werden kann, müssen Sie einen Knoten v<sub>s</sub> auswählen, mit dem der Algorithmus beginnen soll.<br><br><b>Übungsmodus</b>:<br>Aktivieren Sie den Übungsmodus, um den Algorithmus interaktiv zu erlernen. Nachdem Sie den Algorithmus gestartet haben, werden Ihnen<br>Übungsaufgaben gestellt, die Sie lösen müssen.<br>Wenn eine Aufgabe direkt in einer Ansicht des Algorithmus gelöst werden kann, wird die dazugehörige Ansicht mit einer Umrandung hervorgehoben,<br>in der Sie dann die Lösung eingeben können. Danach betätigen Sie den Button zum Lösen der Aufgabe. Ist ein Aufgabe nicht auf eine Ansicht<br>bezogen, können Sie direkt den Button zum Lösen der Aufgabe betätigen. Danach öffnet sich ein Dialog, in dem Sie die Lösung der Aufgabe<br>eingeben können.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the algorithm text
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ALGOTEXT_PARAGRAPH_INITIALIZATION
+#en = 1. Initialization:
+#de = 1. Initialisierung:
+
+$ALGOTEXT_PARAGRAPH_ITERATION
+#en = 2. Iteration:
+#de = 2. Iteration:
+
+$ALGOTEXT_PARAGRAPH_EXPANSION
+#en = 3. Expansion:
+#de = 3. Erweiterung:
+
+$ALGOTEXT_PARAGRAPH_STOPP
+#en = 4. Stop:
+#de = 4. Stopp:
+
+$ALGOTEXT_STEP1_INITR
+#en = Let _latex{$r := (v_s)$} and%n
+#de = Sei _latex{$r := (v_s)$} und%n
+
+$ALGOTEXT_STEP2_INITV_APOSTROPHE
+#en = _latex{$V' = V \setminus \{v_s\}$}.%n%n
+#de = _latex{$V' = V \setminus \{v_s\}$}.%n%n
+
+$ALGOTEXT_STEP3_ITERATION
+#en = Let _latex{$v_{akt}$} be the last vertex in _latex{$r$} 
+#de = Sei _latex{$v_{akt}$} der letzte Knoten in _latex{$r$} 
+ 
+$ALGOTEXT_STEP4_ITERATION
+#en = and _latex{$v' \in \; \underset{v \in V'}{argmin} \; c(v_{akt},v)$}.%n%n
+#de = und _latex{$v' \in \; \underset{v \in V'}{argmin} \; c(v_{akt},v)$}.%n%n
+
+$ALGOTEXT_STEP5_EXPANSIONR
+#en = Add _latex{$v'$} to _latex{$r$}.%n
+#de = Ergänze _latex{$r$} durch _latex{$v'$}.%n
+
+$ALGOTEXT_STEP6_EXPANSIONV_APOSTROPHE
+#en = Set _latex{$V' = V' \setminus \{v'\}$}.%n
+#de = Setze _latex{$V' = V' \setminus \{v'\}$}.%n
+
+$ALGOTEXT_STEP7_EXPANSION
+#en = If _latex{$V' \neq \emptyset$} then go to 2.%n%n
+#de = Falls _latex{$V' \neq \emptyset$}, gehe zu 2.%n%n
+
+$ALGOTEXT_STEP8_STOP
+#en = Add _latex{$v_s$} to _latex{$r$} so that a cycle develops.
+#de = Füge _latex{$v_s$} zu _latex{$r$} hinzu, so dass ein Kreis entsteht.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the exercises of the algorithm steps
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$EXERCISE_STEP1_5_8
+#en = What is the current Hamiltonian cycle <i>r</i>?
+#de = Wie lautet die gegenwärtige Rundreise <i>r</i>?
+
+$EXERCISE_STEP2_6
+#en = What is <i>V'</i>?
+#de = Wie lautet <i>V'</i>?
+
+$EXERCISE_STEP3
+#en = Select <i>v<sub>akt</sub></i> in the graph.
+#de = Wählen Sie <i>v<sub>akt</sub></i> im Graphen aus.
+
+$EXERCISE_STEP4
+#en = Select <i>v'</i> in the graph.
+#de = Wählen Sie <i>v'</i> im Graphen aus.
+
+$EXERCISE_STEP7
+#en = Into what step will the algorithm pass?
+#de = In welchen Schritt wird der Algorithmus übergehen?
+
+$EXERCISE_HINT_CYCLEINPUT
+#en = Use a comma as the delimiter!<br>Enter the Hamiltonian cycle in the following form: v<sub>s</sub>, v<sub>i</sub>, v<sub>j</sub>, ...
+#de = Nutzen Sie ein Komma als Trennzeichen!<br>Geben Sie die Rundreise in folgender Form an: v<sub>s</sub>, v<sub>i</sub>, v<sub>j</sub>, ...
+
+$EXERCISE_HINT_SETINPUT
+#en = Use a comma as the delimiter!
+#de = Nutzen Sie ein Komma als Trennzeichen!
+
+$EXERCISE_STEP7_ITERATION
+#en = 2. Iteration
+#de = 2. Iteration
+
+$EXERCISE_STEP7_STOP
+#en = 4. Stop
+#de = 4. Stopp
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the views of the plugin
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$VIEW_GRAPH_TITLE
+#en = Graph
+#de = Graph
+
+$VIEW_ALGOTEXT_TITLE
+#en = Algorithm
+#de = Algorithmus
+
+$VIEW_CYCLE_TITLE
+#en = Hamiltonian Cycle r
+#de = Rundreise r
+
+$VIEW_SET_TITLE
+#en = Set V'
+#de = Menge V'
+
+$VIEW_LEGEND_TITLE
+#en = Legend
+#de = Legende
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// the legend descriptions
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$LEGEND_GRAPH_STARTVERTEX
+#en = The starting vertex v<sub>s</sub>
+#de = Der Start-Knoten v<sub>s</sub>
+
+$LEGEND_GRAPH_SETV_APOSTROPHE
+#en = The vertices of the set V'
+#de = Die Knoten der Menge V'
+
+$LEGEND_GRAPH_CYCLER
+#en = The Hamiltonian cycle r
+#de = Die Rundreise r
+
+$LEGEND_GRAPH_V_AKT
+#en = The vertex v<sub>akt</sub>
+#de = Der Knoten v<sub>akt</sub>
+
+$LEGEND_GRAPH_V_APOSTROPHE
+#en = The vertex v'
+#de = Der Knoten v'
+
+$LEGEND_GRAPH_CURREDGEMINWEIGHT
+#en = The current edge with the minimum weight searching for a vertex v'
+#de = Die aktuelle Kante mit minimalem Gewicht, auf der Suche nach einem Knoten v'
+
+$LEGEND_GRAPH_EDGESMINWEIGHT
+#en = The edges that are investigated searching for a vertex v'
+#de = Die Kanten, die untersucht wurden auf der Suche nach einem Knoten v'
+
+$LEGEND_CYCLE_MODIFICATION
+#en = The Hamiltonian cycle r becomes modified
+#de = Die Rundreise r wird verändert
+
+$LEGEND_SET_MODIFICATION
+#en = The set V' becomes modified
+#de = Die Menge V' wird verändert
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// creator properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CREATORPREFS_DIRECTED
+#en = directed
+#de = gerichtet
+
+$CREATORPREFS_DIRECTED_DESC
+#en = Apply algorithm to a directed graph
+#de = Verfahren auf gerichteten Graphen anwenden
+
+$CREATORPREFS_UNDIRECTED
+#en = undirected
+#de = ungerichtet
+
+$CREATORPREFS_UNDIRECTED_DESC
+#en = Apply algorithm to an undirected graph
+#de = Verfahren auf ungerichteten Graphen anwenden
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// customization properties
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTFOREGROUND
+#en = Foreground color of the current step in the algorithm
+#de = Vordergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_ALGOTEXTHIGHLIGHTBACKGROUND
+#en = Background color of the current step in the algorithm
+#de = Hintergrundfarbe des aktuellen Schritts im Algorithmus
+
+$CUSTOMIZE_COLOR_STARTVERTEX
+#en = Background color of the starting vertex v<sub>s</sub>
+#de = Hintergrundfarbe des Start-Knotens v<sub>s</sub>
+
+$CUSTOMIZE_COLOR_SETV_APOSTROPHE
+#en = Background color of the vertices of set V'
+#de = Hintergrundfarbe der Knoten aus Menge V'
+
+$CUSTOMIZE_COLOR_CYCLER
+#en = Color of the Hamiltonian cycle r
+#de = Farbe der Rundreise r
+
+$CUSTOMIZE_COLOR_V_AKT
+#en = Background color of the vertex v<sub>akt</sub>
+#de = Hintergrundfarbe des Knotens v<sub>akt</sub>
+
+$CUSTOMIZE_COLOR_V_APOSTROPHE
+#en = Background color of the vertex v'
+#de = Hintergrundfarbe des Knotens v'
+
+$CUSTOMIZE_COLOR_CURREDGEMINWEIGHT
+#en = Color of the edge with a currently minimum weight searching for a vertex v'
+#de = Farbe der Kante mit einem aktuell kleinsten Gewicht, auf der Suche nach einem Knoten v'
+
+$CUSTOMIZE_COLOR_MODIFICATIONS
+#en = Color of modifications to objects
+#de = Farbe von Veränderungen an Objekten
+
+$CUSTOMIZE_LINEWIDTH_STARTVERTEX
+#en = Line with of the starting vertex v<sub>s</sub>
+#de = Linienstärke des Start-Knotens v<sub>s</sub>
+
+$CUSTOMIZE_LINEWIDTH_CYCLER
+#en = Line with of the Hamiltonian cycle r
+#de = Linienstärke der Rundreise r
+
+$CUSTOMIZE_LINEWIDTH_V_AKT
+#en = Line with of the vertex v<sub>akt</sub>
+#de = Linienstärke des Knotens v<sub>akt</sub>
+
+$CUSTOMIZE_LINEWIDTH_CURREDGEMINDIST
+#en = Line with of the edge with the currently minimum weight
+#de = Linienstärke der Kante mit dem aktuell kleinsten Gewicht
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// messages
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$MSG_ERROR_SAVEFILE
+#en = File could not be saved!
+#de = Datei konnte nicht gespeichert werden!
+
+$MSG_ERROR_SAVEFILE_TITLE
+#en = Save File
+#de = Datei speichern
+
+$MSG_ERROR_OPENFILE
+#en = File could not be opened!
+#de = Datei konnte nicht geöffnet werden!
+
+$MSG_ERROR_OPENFILE_TITLE
+#en = Open File
+#de = Datei öffnen
+
+$MSG_INFO_SELECTSTARTVERTEX
+#en = Please select the starting vertex in the graph!
+#de = Bitte wählen Sie den Start-Knoten im Graphen aus!
+
+$MSG_INFO_SELECTSTARTVERTEX_TITLE
+#en = Select starting vertex
+#de = Start-Knoten wählen
+
+$MSG_INFO_NEGATIVEWEIGHTS
+#en = The created graph contains edges with a negative weight!%nThe Nearest neighbor algorithm can only be applied to non-negative weighted graphs.
+#de = Der erstellte Graph enthält Kanten mit negativen Gewichten!%nDas Nächster-Nachbar Verfahren kann nur auf nicht negativ gewichtete Graphen angewendet werden.
+
+$MSG_INFO_NEGATIVEWEIGHTS_TITLE
+#en = Negative edge weights
+#de = Negative Kanten-Gewichte
+
+$MSG_INFO_NOTCOMPLETE
+#en = The created graph is not complete!%nThe Nearest neighbor algorithm can only be applied to complete graphs.
+#de = Der erstellte Graph ist nicht vollständig!%nDas Nächster-Nachbar Verfahren kann nur auf vollständige Graphen angewendet werden.
+
+$MSG_INFO_NOTCOMPLETE_TITLE
+#en = No complete graph
+#de = Kein vollständiger Graph
+
+$MSG_INFO_INSUFFICIENTVERTEXCOUNT
+#en = The created graph does not comply with the assumptions!%nThe vertex count is insufficient.
+#de = Der erstellte Graph entspricht nicht den Voraussetzungen!%nDie Anzahl Knoten ist zu gering.
+
+$MSG_INFO_INSUFFICIENTVERTEXCOUNT_TITLE
+#en = Invalid graph
+#de = Ungültiger Graph
+
+$MSG_INFO_INVALIDCYCLEINPUT
+#en = Your input is incorrect!%nPlease enter the Hamiltonian cycle in the specified form and only use vertex captions that are existing.
+#de = Ihre Eingabe ist inkorrekt!%nGeben Sie die Rundreise in der angegebenen Form ein und verwenden Sie nur vorhandene Knoten-Beschriftungen.
+
+$MSG_INFO_INVALIDCYCLEINPUT_TITLE
+#en = Invalid input
+#de = Ungültige Eingabe
