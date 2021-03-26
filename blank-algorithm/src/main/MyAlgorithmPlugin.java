@@ -103,23 +103,24 @@ public class MyAlgorithmPlugin implements AlgorithmPlugin {
 						langFile, langID, true);
 
 		// (3) load configuration data
-		colorA = config.getColor(CFGKEY_COLOR_A, new Color(255, 255, 255));
+		colorA = config.getColor(CFGKEY_COLOR_A, new Color(0, 255, 255));
+		colorE = config.getColor(CFGKEY_COLOR_E, new Color(255, 0, 255));
 	}
 	
 	// Methods to describe the algorithm
 	@Override
 	public String getName() {
-		return LanguageFile.getLabel(langFile, "ALGO_NAME", langID, "Greedy algorithm");
+		return LanguageFile.getLabel(langFile, "ALGO_NAME", langID, "blank algorithm");
 	}
 
 	@Override
 	public String getDescription() {
-		return LanguageFile.getLabel(langFile, "ALGO_DESC", langID, "Finds a perfect matching <i>M</i> with a low weight of the edges.");
+		return LanguageFile.getLabel(langFile, "ALGO_DESC", langID, "This is a test algorithm");
 	}
 	
 	@Override
 	public String getType() {
-		return LanguageFile.getLabel(langFile, "ALGO_TYPE", langID, "Heuristic");
+		return LanguageFile.getLabel(langFile, "ALGO_TYPE", langID, "Test");
 	}
 
 	@Override
@@ -134,7 +135,7 @@ public class MyAlgorithmPlugin implements AlgorithmPlugin {
 
 	@Override
 	public String getAssumptions() {
-		return LanguageFile.getLabel(langFile, "ALGO_ASSUMPTIONS", langID, "A weighted complete graph K<sub>n</sub> with <i>n mod 2 = 0</i> (even number of vertices) or a weighted complete bipartite graph K<sub>n/2,n/2</sub>, n = |V|.");
+		return LanguageFile.getLabel(langFile, "ALGO_ASSUMPTIONS", langID, "Here you can add assumptions");
 	}
 
 	@Override
@@ -252,24 +253,6 @@ public class MyAlgorithmPlugin implements AlgorithmPlugin {
 		graphView.reset();
 	}
 
-	
-	// Load the algorithm text 
-//	private AlgorithmText loadAlgorithmText() {
-//		AlgorithmStep step;
-//		final AlgorithmText text = new AlgorithmText();
-//		// create paragraphs
-//		final AlgorithmParagraph initParagraph = new AlgorithmParagraph(text, "1. Initialization:", 1);
-//		final AlgorithmParagraph itParagraph = new AlgorithmParagraph(text,	"2. Iteration:", 2);
-//		// 1. initialization
-//		step = new AlgorithmStep(initParagraph, "Let _latex{a} be an arbitrary edge and _latex{c := 0}.", 1);
-//		// 2. iteration
-//		step = new AlgorithmStep(itParagraph, "For each _latex{e \\in E}", 2);
-//		step = new AlgorithmStep(itParagraph, "If _latex{w(e) == w(a)} then", 3, 1);
-//		step = new AlgorithmStep(itParagraph, "_latex{c := c + 1}", 4, 2);
-//		return text;
-//	}
-
-	
 	// Create exercises
 	@Override
 	public boolean hasExerciseMode() {
@@ -286,6 +269,9 @@ public class MyAlgorithmPlugin implements AlgorithmPlugin {
  		// 1. initialization
  		step = new AlgorithmStep(initParagraph,
  		"Let _latex{a} be an arbitrary edge and _latex{c := 0}.", 1);
+ 		
+ 		// 2. iteration
+ 		step = new AlgorithmStep(itParagraph, "For each _latex{e \\in E}", 2);
  		
 		step = new AlgorithmStep(itParagraph, "If _latex{w(e) == w(a)} then", 3, 1);
 		step.setExercise(new AlgorithmExercise<Boolean>("Does <i>w(e)</i> equals <i>w(a)</i>?", 1.0f) {
@@ -324,8 +310,10 @@ public class MyAlgorithmPlugin implements AlgorithmPlugin {
 				return (results[0] != null && results[0] == (e.getWeight() == a.getWeight()));
 			}
 		});
-		// ...
-		return text;
+		
+		step = new AlgorithmStep(itParagraph, "_latex{c := c + 1}", 4, 2);
+
+ 		return text;
 	}
 	
 	// Save and open files
@@ -432,37 +420,37 @@ public class MyAlgorithmPlugin implements AlgorithmPlugin {
 			Graph<Vertex, Edge> graph = MyAlgorithmPlugin.this.graphView.getGraph();
 			int iNextStepID = -1;
 			switch (stepID) {
-			case 0: // Let a be an arbitrary edge and c:=0
+			case 1: // Let a be an arbitrary edge and c:=0
 				a = graph.getEdge(0).getID();
 				c = 0;
 				forEach = graph.getEdgeByIDSet();
 				sleep(500);
 				visualizeEdges();
 				sleep(500);
-				iNextStepID = 1;
+				iNextStepID = 2;
 				break;
-			case 1: // For each e in E
+			case 2: // For each e in E
 				if (forEach.size() > 0) {
 					e = forEach.get(0);
 					forEach.remove(e);
 					sleep(500);
 					visualizeEdges();
 					sleep(500);
-					iNextStepID = 2;
+					iNextStepID = 3;
 				} else
 					iNextStepID = -1;
 				break;
-			case 2: // If w(e) == w(a) then
+			case 3: // If w(e) == w(a) then
 				final Edge _e = graph.getEdgeByID(e);
 				final Edge _a = graph.getEdgeByID(a);
 				if (_e.getWeight() == _a.getWeight())
-					iNextStepID = 3;
+					iNextStepID = 4;
 				else
-					iNextStepID = 1;
+					iNextStepID = 2;
 				break;
-			case 3: // c:=c+1
+			case 4: // c:=c+1
 				c = c + 1;
-				iNextStepID = 1;
+				iNextStepID = 2;
 				break;
 			}
 			return iNextStepID;
@@ -495,8 +483,8 @@ public class MyAlgorithmPlugin implements AlgorithmPlugin {
 		@Override
 		protected void rollBackStep(int stepID, int nextStepID) {
 			switch (stepID) {
-			case 0:
 			case 1:
+			case 2:
 				visualizeEdges();
 				break;
 			}
@@ -527,6 +515,8 @@ public class MyAlgorithmPlugin implements AlgorithmPlugin {
 					ve.setLineWidth(GraphView.DEF_EDGELINEWIDTH);
 				}
 			}
+			
+			graphView.repaint();
 		}
 	}
 
