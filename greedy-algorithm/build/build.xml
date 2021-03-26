@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="GreedyAlgorithm" default="build" basedir=".">
+
+	<!-- Globals Config -->
+	<property name="encoding" value="8859_1" />
+	<property name="compilerlevel" value="1.8" />
+	<property name="includeantruntime" value="false" />
+
+	<!-- Globals -->
+	<property name="jar_name" value="greedy-algorithm.jar" />
+
+	<!-- Paths -->
+	<path id="classpath">
+		<fileset dir="../lib" includes="**/*.jar" />
+	</path>
+
+	<!-- Compile Target -->
+	<target name="compile" depends="clean, compile_plugin">
+	</target>
+
+	<!-- Main Target -->
+	<target name="build">
+		<property name="debugmode" value="off" />
+		<antcall target="compile" />
+		<antcall target="makejar" />
+	</target>
+
+	<!-- Clean Projects -->
+	<target name="clean">
+		<delete dir="../bin" />
+		<mkdir dir="../bin" />
+	</target>
+
+	<!-- Compile SDK -->
+	<target name="compile_plugin" description="compile the plugin">
+		<javac srcdir="../src" destdir="../bin"
+			encoding="${encoding}" debug="off"
+			target="${compilerlevel}" includeantruntime="${includeantruntime}">
+			<classpath>
+				<path refid="classpath" />
+			</classpath>
+		</javac>
+	</target>
+
+	<!-- Build JAR -->
+	<target name="makejar" description="Create Jar for plugin">
+		<jar jarfile="${jar_name}" includes="**/*.class">
+			<fileset dir="../bin/" />
+		</jar>
+	</target>
+
+</project>
